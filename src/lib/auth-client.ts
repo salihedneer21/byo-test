@@ -1,7 +1,16 @@
 import { createAuthClient } from "better-auth/react";
 import { convexClient } from "@convex-dev/better-auth/client/plugins";
 import { emailOTPClient, twoFactorClient } from "better-auth/client/plugins";
-import { crossDomainClient } from "@/lib/cross-domain-client";
+// Remove only the credential caches left by the retired custom auth plugin.
+// Never read or migrate their contents into the cookie-managed session.
+if (typeof window !== "undefined") {
+  try {
+    window.localStorage.removeItem("better-auth_cookie");
+    window.localStorage.removeItem("better-auth_session_data");
+  } catch {
+    // Storage can be unavailable; authentication does not depend on it.
+  }
+}
 
 // Derive the Convex site URL from the cloud URL
 // e.g., https://abc-123.convex.cloud -> https://abc-123.convex.site
@@ -13,23 +22,12 @@ export const authClient = createAuthClient({
   baseURL: convexSiteUrl,
   plugins: [
     convexClient(),
-    crossDomainClient(),
     emailOTPClient(),
     twoFactorClient(),
   ],
+  // Better Auth sends browser-managed HttpOnly cookies, not copied headers.
   fetchOptions: {
-    onSuccess: (ctx) => {
-      // Prevent better-auth's default redirect plugin from navigating.
-      // The cross-domain server plugin always injects a callbackURL for sign-in
-      // (even when the client doesn't send one), resolving it against SITE_URL
-      // which defaults to http://localhost:5173. In WebContainers, this causes
-      // Chrome's Private Network Access to block the redirect. We handle
-      // navigation explicitly via React Router instead.
-      if (ctx.data?.redirect) {
-        ctx.data.redirect = false;
-        ctx.data.url = undefined;
-      }
-    },
+    credentials: "include",
   },
   sessionOptions: {
     refetchOnWindowFocus: false,
@@ -37,14 +35,10 @@ export const authClient = createAuthClient({
   },
 });
 
-type AuthClientWithSessionRefresh = typeof authClient & {
-  updateSession?: () => void;
-};
-
 // Better Auth can flip claims such as twoFactorEnabled without rotating the
 // session token. Force a fresh getSession call so protected routes see the
 // updated state before navigating.
 export async function refreshAuthSession() {
   await authClient.getSession();
-  (authClient as AuthClientWithSessionRefresh).updateSession?.();
+  authClient.$store.notify("$sessionSignal");
 }

@@ -54,6 +54,7 @@ Deliver the complete one-page clinic site. The public home page is the only prod
 - [x] Sample clinic name, opening hours, and contact details.
 - [x] Approved responsive information-sheet design and visible fictional-content notice.
 - [x] Source review, TypeScript/ESLint checks, and Vite production asset build.
+- [x] Frozen HIPAA-AC-012 issue `1a3c685b-4b73-4b23-ae39-25b8419b9dee`: removed the custom browser-storage credential plugin and header replay, switched existing auth infrastructure to secure HttpOnly library-managed cookies, and added deletion-only cleanup of its two legacy caches. Public page unchanged. Frontend/backend TypeScript, ESLint, Vite asset build, backend sync, and diff review passed. Targeted verification `b7e120aa-96b1-406e-80cb-db7b8c51a403` completed with outcome `fixed`; other findings were outside this remediation scope.
 - [ ] Production page verified to display the intended information.
 
 > Production deployment verification remains pending. No browser interaction testing was performed.
