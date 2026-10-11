@@ -1,14 +1,7 @@
 {
   "version": 7,
   "stage": "implementation",
-  "pending": {
-    "kind": "question",
-    "phase": "implementation",
-    "askedAt": "2026-10-11T11:27:24.833Z",
-    "requestedAt": "2026-10-11T11:27:24.833Z",
-    "chatBody": "Your design is approved. The first build will deliver the complete minimal clinic site.\n\n**What I’ll build:**\n- One public home page headed **Sample Clinic**.\n- Opening hours: Monday–Friday, 9 AM–5 PM; weekends closed.\n- A contact section displaying the sample phone, email, and address.\n- A brief fictional-content notice, with the approved understated styling and a layout that adapts to phones.\n\n**Why this comes first:** This single page delivers everything in your roadmap and gives you a focused site for your production deployment test.\n\n**Out of scope:** Accounts, booking, contact forms, dashboards, data collection, and third-party integrations. No secondary screens or workflows are needed.\n\nReply **approve**, **continue**, or **yes build it** to start, or describe any changes.",
-    "summary": "Awaiting first-build approval for complete single-page clinic site."
-  },
+  "pending": null,
   "questionRounds": {
     "planning": 1,
     "design": 1
@@ -16,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 1,
-      "archivedPath": "memory/roadmaps/v1-e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86.md",
-      "contentDigest": "sha256:e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86",
-      "approvedVersion": 1
+      "version": 2,
+      "archivedPath": "memory/roadmaps/v2-4d40e534c94127a7c53f5edeb5484c04b720392a0df49bc5155b61ca7f940ad2.md",
+      "contentDigest": "sha256:4d40e534c94127a7c53f5edeb5484c04b720392a0df49bc5155b61ca7f940ad2",
+      "approvedVersion": 2
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -31,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v1-f9073d9938790d0b2ad6290be00908e27a6d646b2e7ce9729aa99af7ccd68991.json"
     }
   },
-  "lastSummary": "Design approved; proposed the one-page first build for explicit go-ahead.",
-  "updatedAt": "2026-10-11T11:27:24.915Z"
+  "lastSummary": "Implemented the approved one-page static clinic site and responsive design. Source review, TypeScript/ESLint and Vite build passed; production display verification remains unchecked.",
+  "updatedAt": "2026-10-11T11:39:31.988Z"
 }

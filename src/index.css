@@ -2,86 +2,92 @@
 
 @layer base {
   :root {
-    color: #012e33;
-    background: #ffffff;
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    color: oklch(0.25 0.008 310);
+    background: oklch(0.975 0.006 75);
+    font-size: 16px;
+    line-height: 1.6;
+    color-scheme: light;
   }
 
   body {
     margin: 0;
-    color: #012e33;
-    background: #ffffff;
-  }
-
-  #root {
-    min-height: 100vh;
   }
 }
 
-.preview-placeholder-shell {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-  background:
-    radial-gradient(circle at 50% 78%, rgba(102, 205, 204, 0.12), transparent 20rem),
-    linear-gradient(180deg, #ffffff 0%, #fcfefe 100%);
+.clinic-sheet {
+  width: calc(100% - 3rem);
+  max-width: 55rem;
+  margin-inline: auto;
+  padding-block: 2.5rem;
+  overflow-wrap: anywhere;
 }
 
-.preview-placeholder-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-  text-align: center;
-}
-
-.preview-placeholder-mark {
-  width: 2.875rem;
-  height: auto;
-  color: #66cdcc;
-  transform-origin: center;
-  filter: drop-shadow(0 10px 20px rgba(102, 205, 204, 0.16));
-  animation: preview-placeholder-pulse 2.4s cubic-bezier(0.22, 1, 0.36, 1)
-    infinite;
-}
-
-.preview-placeholder-copy {
-  margin: 0;
-  color: #012e33;
-  font-size: clamp(1.25rem, 1.1rem + 0.65vw, 1.55rem);
+.clinic-sheet h1 {
+  margin: 0 0 3rem;
+  font-size: 2.25rem;
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
-@keyframes preview-placeholder-pulse {
-  0%,
-  100% {
-    opacity: 0.84;
-    transform: scale(0.96);
-  }
-
-  45% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
+.clinic-information {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .preview-placeholder-mark {
-    animation: none;
-    transform: none;
-  }
+.clinic-information section {
+  min-width: 0;
+  border-top: 1px solid oklch(0.85 0.007 75);
+  padding-top: 1.5rem;
 }
 
-@media (max-width: 480px) {
-  .preview-placeholder-copy {
-    font-size: 0.95rem;
-    letter-spacing: -0.02em;
+.clinic-information h2 {
+  margin: 0 0 1.5rem;
+  color: oklch(0.40 0.065 325);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.clinic-information dl,
+.clinic-information dd {
+  margin: 0;
+}
+
+.information-entry + .information-entry {
+  margin-top: 1.25rem;
+}
+
+.information-entry dt {
+  margin-bottom: 0.25rem;
+  color: oklch(0.46 0.01 310);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.sample-notice {
+  margin: 3rem 0 0;
+  border-top: 1px solid oklch(0.85 0.007 75);
+  padding-top: 1.5rem;
+  font-size: 0.875rem;
+  max-width: 65ch;
+}
+
+@media (min-width: 40rem) {
+  .clinic-sheet {
+    padding-block: 5rem;
+  }
+
+  .clinic-sheet h1 {
+    font-size: 3.5rem;
+  }
+
+  .clinic-information {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem;
   }
 }

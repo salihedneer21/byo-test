@@ -50,13 +50,14 @@ Deliver the complete one-page clinic site. The public home page is the only prod
 - None. External integrations are outside the agreed scope, not planned follow-up work.
 
 ## What's Been Implemented
-- [ ] Public one-page clinic site.
-- [ ] Sample clinic name, opening hours, and contact details.
+- [x] Public one-page clinic site.
+- [x] Sample clinic name, opening hours, and contact details.
+- [x] Approved responsive information-sheet design and visible fictional-content notice.
+- [x] Source review, TypeScript/ESLint checks, and Vite production asset build.
 - [ ] Production page verified to display the intended information.
 
-> Update this section as features are built. Check items off as they become real.
+> Production deployment verification remains pending. No browser interaction testing was performed.
 
 ## Next Steps
-- Approve the one-page scope and sample content.
-- Define the page's design without introducing additional features or screens.
-- Build the page and verify the production deployment; no subsequent feature iterations are planned.
+- Deploy the completed page and verify that the public production URL displays the intended information.
+- No additional feature slices or integrations are planned.

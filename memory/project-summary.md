@@ -10,12 +10,12 @@ Production deploy test clinic: a simple one-page clinic site with the clinic nam
 ## Locked Product Context
 - You authorized sample content by replying “go” to the initial clarification.
 - Exactly one public page: clinic name, opening hours, and displayed phone/email/address. No authentication, booking, form, integrations, dashboards, or data collection.
-- Proposed fictional content: Sample Clinic; Monday–Friday 9 AM–5 PM, weekends closed; +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town. Identify the content as a deployment-test example.
+- Implemented fictional content: Sample Clinic; Monday–Friday 9:00 AM–5:00 PM, Saturday–Sunday closed; +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town. The visible notice identifies it as deployment-test sample information.
 - The first build and full MVP have the same one-page scope. Success means the deployed public URL displays the intended clinic information.
-- Roadmap v1 approved. Design direction delegated explicitly by replying “go”; the design proposal is not yet approved. Implementation has not started.
+- Roadmap and design v1 approved; the complete static home page is implemented. TypeScript/ESLint checks and Vite production asset build passed. Production URL display verification remains pending; no browser testing was performed. No further feature slices are planned.
 
 ## Visual and Interaction Direction
-- Proposed understated information-sheet treatment: warm paper canvas, dark ink, sparse muted plum accent, system humanist sans typography, no images or remote font assets.
+- Implemented understated information-sheet treatment: warm paper canvas, dark ink, sparse muted plum accent, system humanist sans typography, no images or remote font assets.
 - Left-aligned clinic name followed by hours and contact in two desktop columns, stacked on mobile. Fine rules and whitespace instead of cards; no navigation or call-to-action buttons.
 - Contact details remain selectable display text. Static page with no animations or live open/closed status.
 - Visible notice: “Sample information for a deployment test. Not a real clinic listing.” Preserve readable contrast, semantic headings, and narrow-screen/zoom support.
