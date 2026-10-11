@@ -1,17 +1,7 @@
 {
   "version": 7,
   "stage": "implementation",
-  "pending": {
-    "kind": "review",
-    "phase": "design",
-    "artifact": "design",
-    "path": "memory/design-brief.md",
-    "version": 2,
-    "askedAt": "2026-10-11T19:43:39.097Z",
-    "requestedAt": "2026-10-11T19:43:39.097Z",
-    "chatBody": "I’m proposing a restrained dark version of your existing Sample Clinic page, keeping everything else unchanged.\n\n**What changes:**\n- Warm paper becomes a softly plum-tinted charcoal background.\n- Dark ink becomes warm off-white text, with lighter muted labels and readable plum section headings.\n- Fine dividers become subtle dark-theme rules, without adding cards, shadows, or glow.\n- Your system font, spacing, two-column desktop layout, stacked mobile layout, and all content stay exactly as they are, including the test-content notice.\n- Dark mode stays active regardless of device preference, with no new toggle or animation.\n\nReply `approve` or `continue` to proceed, or describe any changes.",
-    "summary": "Dark-theme-only design revision drafted for existing Sample Clinic page; layout, content, and scope preserved; awaiting approval."
-  },
+  "pending": null,
   "questionRounds": {
     "planning": 1,
     "design": 1
@@ -29,11 +19,11 @@
       "version": 2,
       "archivedPath": "memory/design-briefs/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.md",
       "contentDigest": "sha256:08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f",
-      "approvedVersion": 1,
+      "approvedVersion": 2,
       "guidelinesPath": "memory/design-guidelines.json",
       "guidelinesArchivedPath": "memory/design-guidelines/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.json"
     }
   },
-  "lastSummary": "Dark-theme-only design revision drafted for existing Sample Clinic page; layout, content, and scope preserved; awaiting approval.",
-  "updatedAt": "2026-10-11T19:43:39.179Z"
+  "lastSummary": "Approved dark-theme-only design revision for existing Sample Clinic page.",
+  "updatedAt": "2026-10-11T19:44:47.090Z"
 }
