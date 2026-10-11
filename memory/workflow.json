@@ -1,20 +1,17 @@
 {
   "version": 7,
-  "stage": "planning",
+  "stage": "design",
   "pending": {
-    "kind": "review",
-    "phase": "planning",
-    "artifact": "roadmap",
-    "path": "memory/roadmap.md",
-    "version": 1,
-    "askedAt": "2026-10-11T11:14:49.642Z",
-    "requestedAt": "2026-10-11T11:14:49.642Z",
-    "chatBody": "Your clinic deployment test will be a single public page with fictional sample information.\n\n**First build ships:**\n- Clinic name: **Sample Clinic**.\n- Opening hours: Monday–Friday, 9 AM–5 PM; weekends closed.\n- Contact section: +1 (202) 555-0147, clinic@example.com, and 123 Example Street, Sample Town.\n- A brief notice identifying the information as sample content for a deployment test.\n\n**Deferred for later:**\n- Nothing planned beyond this page. Accounts, booking, forms, dashboards, integrations, and data collection remain out of scope.\n\nThe first build is also the complete MVP; success means the production URL displays the intended clinic information.\n\nReply **approve** or **continue** to proceed, or describe any changes.",
-    "summary": "One-page clinic deployment-test roadmap drafted with authorized fictional content; awaiting approval in planning."
+    "kind": "question",
+    "phase": "design",
+    "askedAt": "2026-10-11T11:16:00.104Z",
+    "requestedAt": "2026-10-11T11:16:00.104Z",
+    "chatBody": "- **Reference screenshots:** The most useful way to steer the look is to paste screenshots directly here of a clinic site or another simple page you like. One Medical, Carbon Health, or any non-medical reference works. Multiple shots help; links are fine too.\n- **Visitor experience:** For your single page showing hours and contact details, should it feel reassuring and clinical, warm and neighborhood-oriented, or crisp and matter-of-fact?\n- **What to avoid:** Anything you specifically dislike, such as stock doctor photos, dated patient-portal styling, or decorative wellness templates? Your own “not that” examples are welcome.\n\nTell me as much or as little as you want. If you’d rather I choose the design direction, just say go.",
+    "summary": "Design discovery round 1: references, visitor-facing mood, and anti-references for the minimal public clinic page."
   },
   "questionRounds": {
     "planning": 1,
-    "design": 0
+    "design": 1
   },
   "artifacts": {
     "roadmap": {
@@ -22,7 +19,7 @@
       "version": 1,
       "archivedPath": "memory/roadmaps/v1-e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86.md",
       "contentDigest": "sha256:e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86",
-      "approvedVersion": null
+      "approvedVersion": 1
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -34,6 +31,6 @@
       "guidelinesArchivedPath": null
     }
   },
-  "lastSummary": "One-page clinic deployment-test roadmap drafted with authorized fictional content; awaiting approval in planning.",
-  "updatedAt": "2026-10-11T11:14:49.734Z"
+  "lastSummary": "Approved one-page roadmap read; awaiting first-round design preferences.",
+  "updatedAt": "2026-10-11T11:16:00.199Z"
 }
