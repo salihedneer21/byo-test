@@ -9,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 4,
-      "archivedPath": "memory/roadmaps/v4-0b5254d306ca734c7a93dc881b249a7bd2ee58a2af0b921eef94d39f596846b7.md",
-      "contentDigest": "sha256:0b5254d306ca734c7a93dc881b249a7bd2ee58a2af0b921eef94d39f596846b7",
-      "approvedVersion": 4
+      "version": 5,
+      "archivedPath": "memory/roadmaps/v5-33456b2430b2b390494f369e90b2cffd60b5577ca19f76782ed370b150fffef1.md",
+      "contentDigest": "sha256:33456b2430b2b390494f369e90b2cffd60b5577ca19f76782ed370b150fffef1",
+      "approvedVersion": 5
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -24,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.json"
     }
   },
-  "lastSummary": "Approved dark-theme-only design revision for existing Sample Clinic page.",
-  "updatedAt": "2026-10-11T19:44:47.090Z"
+  "lastSummary": "Implemented approved fixed dark palette and native dark color-scheme on Sample Clinic. Only CSS color declarations changed; markup, content, font metrics, spacing, responsive layout, backend/auth and previous HIPAA fixes untouched. Source/diff and import-order review completed; TypeScript/ESLint and Vite production asset build passed. Source contrast: main text/notice 14.30:1, labels 7.56:1, headings 8.22:1. No browser testing performed. Production display check remains pending; no additional feature slices or integrations planned.",
+  "updatedAt": "2026-10-11T19:46:22.049Z"
 }
