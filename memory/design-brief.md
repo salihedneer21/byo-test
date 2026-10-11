@@ -6,17 +6,17 @@
 - **Primary jobs to be done**: Read the clinic name, hours, phone, email, and address quickly, without signing in or submitting information.
 
 ## Direction Summary
-Use a quiet, typography-led information sheet rather than a promotional healthcare landing page. Warm paper neutrals, dark ink, and a small muted plum accent give the page a considered identity without introducing assets or visual noise. A clear left-aligned title and two plainly labeled information sections make the entire page easy to scan. This direction is chosen by design judgment following permission to proceed without further discovery, not based on supplied visual references.
+Keep the existing quiet, typography-led information sheet and change only its theme to dark mode, as requested. A plum-tinted charcoal canvas, warm off-white text, and a lighter muted plum accent translate the warm-paper identity without adding assets or visual noise. Preserve the current typography, spacing, content, and responsive arrangement. The dark palette is selected by design judgment from the existing direction, not from new external references.
 
 ## Brand and Mood
 - **Brand personality**: Plainspoken, careful, understated.
 - **Mood**: Calm and immediately legible, with no implication that the fictional clinic is an operating care service.
 - **Keywords**: Quiet, readable, orderly, honest, minimal.
-- **Viewing scene**: A visitor checks the hours and contact details on a phone in daylight, while the project owner checks the same page on a desktop; a light paper-like canvas supports both.
+- **Viewing scene**: A visitor reads the brief hours/contact listing on a phone, and the project owner checks it on a desktop, under variable ambient light. Your explicit dark-mode choice determines the canvas; high-contrast text keeps the information readable without assuming a nighttime-only audience.
 
 ## Color System
-- **Backgrounds / neutrals**: Warm near-white canvas `oklch(0.975 0.006 75)`, optional slightly lighter surface `oklch(0.99 0.003 75)`, dark ink text `oklch(0.25 0.008 310)`, muted text `oklch(0.46 0.01 310)`, fine separators `oklch(0.85 0.007 75)`. Do not use pure white or black.
-- **Primary accent**: Muted plum `oklch(0.40 0.065 325)` used sparingly, under 10% of the surface, for small typographic emphasis or a focus indicator if needed. Keep main text dark ink.
+- **Backgrounds / neutrals**: Plum-tinted charcoal canvas `oklch(0.20 0.008 310)`, with the same color for the flat surface; warm off-white main text `oklch(0.92 0.006 75)`, muted labels `oklch(0.73 0.01 310)`, fine separators `oklch(0.36 0.008 310)`. Do not use pure white or black. Preserve the notice in main text color and verify final rendered text contrast against the canvas.
+- **Primary accent**: Light muted plum `oklch(0.76 0.065 325)` used sparingly, under 10% of the surface, for the existing section headings or a focus indicator if needed. Main content remains warm off-white. Avoid reusing the original dark plum on the dark background.
 - **Secondary accents**: None. Avoid adding a decorative palette.
 - **Semantic colors**: No status system is needed. Closed weekend hours are ordinary text, not an error state. If a genuine semantic state becomes necessary within approved scope, use text plus color, and verify contrast rather than inventing badges.
 
@@ -26,7 +26,7 @@ Use a quiet, typography-led information sheet rather than a promotional healthca
 - **Hierarchy notes**: Keep at least 1.25 scale contrast between body, section headings, and title. Left align all information, cap text width at 65ch, and preserve readable numbers without decorative treatments. Notice text stays at least 14px and readable.
 
 ## Layout and Navigation
-- **Layout direction**: A single light document canvas, maximum content width approximately 880px, centered horizontally with left-aligned content. Use roughly 64–88px top/bottom padding on desktop and 32–40px on mobile, with 24px mobile side gutters.
+- **Layout direction**: A single dark document canvas, maximum content width approximately 880px, centered horizontally with left-aligned content. Use roughly 64–88px top/bottom padding on desktop and 32–40px on mobile, with 24px mobile side gutters.
 - **Navigation pattern**: None. No menu, sidebar, tabs, sticky header, or additional routes are warranted.
 - **Screen rhythm**: Clinic name first, then a generous 40–56px separation before the information area. Hours and contact sit in two columns above approximately 640px, with a 48–64px gutter, and stack in that order below it. Use fine horizontal rules and open space instead of cards. Place a short sample-data notice after both sections; do not force the page to fill the viewport or hide content to fit one screen.
 
@@ -46,6 +46,7 @@ Use a quiet, typography-led information sheet rather than a promotional healthca
 
 ## Anti-Patterns / Constraints
 - Exactly one public page, no authentication, booking, forms, integrations, dashboards, backend management, tracking, or collection of personal information. Do not add MFA or related screens.
+- Dark theme only, independent of system theme preference; use native dark color-scheme behavior. Do not add a theme toggle, preference storage, or light-mode variant. This revision changes palette only: preserve current font metrics, layout, spacing, content, and static behavior; do not touch backend or prior HIPAA remediation.
 - Use the exact approved sample name, hours, phone, email, and address. Include a concise visible notice: "Sample information for a deployment test. Not a real clinic listing."
 - Avoid stock clinician photography, medical icons, generic teal healthcare templates, gradient heroes, promotional copy, testimonials, invented services, and claims of availability or care quality.
 - Avoid oversized full-screen heroes that push the actual information out of view, repeated cards, glassmorphism, shadows, and unnecessary animation.

@@ -1,24 +1,25 @@
 {
-  "directionSummary": "A quiet, typography-led clinic information sheet on warm paper neutrals with dark ink and a sparse muted plum accent. One public static page, no imagery or additional assets. Direction chosen by judgment after explicit permission to proceed, without supplied references.",
+  "directionSummary": "The existing quiet clinic information sheet translated to your requested dark mode: plum-tinted charcoal, warm off-white text, and sparse light muted plum headings. Preserve all current content, typography, spacing, layout, and static behavior; no new assets or features.",
   "brand": {
     "personality": ["plainspoken", "careful", "understated"],
     "mood": "Calm and immediately legible, clearly a fictional deployment-test listing rather than an operating care service.",
     "keywords": ["quiet", "readable", "orderly", "honest", "minimal"]
   },
   "palette": {
-    "background": "oklch(0.975 0.006 75)",
-    "surface": "oklch(0.99 0.003 75)",
-    "primary": "oklch(0.40 0.065 325)",
+    "background": "oklch(0.20 0.008 310)",
+    "surface": "oklch(0.20 0.008 310)",
+    "primary": "oklch(0.76 0.065 325)",
     "secondary": [],
-    "text": "oklch(0.25 0.008 310)",
-    "mutedText": "oklch(0.46 0.01 310)",
-    "separator": "oklch(0.85 0.007 75)",
-    "strategy": "Restrained. Muted plum occupies less than 10% of the surface; no pure white or black.",
+    "text": "oklch(0.92 0.006 75)",
+    "mutedText": "oklch(0.73 0.01 310)",
+    "separator": "oklch(0.36 0.008 310)",
+    "strategy": "Restrained dark equivalent of the original warm-paper/plum identity. Light muted plum occupies less than 10% of the surface; no pure white or black. Surface matches the canvas; no new panels.",
+    "theme": "Fixed dark mode regardless of system preference; native color-scheme dark. No toggle, theme persistence, or light variant.",
     "semantic": {
       "success": "Unused; do not invent success status.",
       "warning": "Unused; sample-data notice is ordinary readable text.",
       "error": "Unused; closed weekend hours are not an error state.",
-      "info": "Use dark ink text for the sample-data notice, not a colored badge."
+      "info": "Use warm off-white main text for the sample-data notice, not a colored badge."
     }
   },
   "typography": {
@@ -36,7 +37,7 @@
     "navigation": "None. Single public page without a menu, sidebar, tabs, or sticky header.",
     "density": "Comfortably spaced but short; no full-viewport promotional hero.",
     "notes": [
-      "Viewing scene: daytime phone information lookup and desktop deployment inspection support a light, paper-like canvas.",
+      "Viewing scene: phone information lookup and desktop deployment inspection under variable ambient light. Explicit dark-mode preference determines the canvas; prioritize readable contrast.",
       "Content max-width approximately 880px, horizontally centered.",
       "Desktop vertical padding 64–88px; mobile 32–40px with 24px side gutters.",
       "Clinic name precedes the information area by 40–56px.",
@@ -78,12 +79,14 @@
     ]
   },
   "accessibility": [
-    "WCAG AA text contrast; verify final rendered colors.",
+    "WCAG AA text contrast: at least 4.5:1 for normal text and 3:1 for large text; verify final rendered main text, muted labels, notice, and plum headings against the dark canvas. Fine rules are decorative, not the sole means of conveying structure.",
     "One h1, meaningful section headings, semantic reading order matching the layout.",
     "Keep all information readable without remote assets or script-dependent disclosure."
   ],
   "constraints": [
     "Exactly one public static page; no additional screens or backend management.",
+    "Palette-only revision: preserve current font metrics, spacing, responsive layout, all sample content, and static behavior. No code or backend changes during design; prior HIPAA remediation is outside the theme revision scope.",
+    "Do not add a theme toggle, preference storage, system-theme switching, or light-mode variant.",
     "No authentication, MFA, booking, forms, integrations, dashboards, tracking, or collection of personal information.",
     "No invented services, testimonials, credentials, or promotional claims.",
     "No status implying production deployment verification has already succeeded.",

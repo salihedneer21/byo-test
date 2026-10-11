@@ -15,7 +15,9 @@ Production deploy test clinic: a simple one-page clinic site with the clinic nam
 - Roadmap and design v1 approved; the complete static home page is implemented. TypeScript/ESLint checks and Vite production asset build passed. Production URL display verification remains pending; no browser testing was performed. No further feature slices are planned.
 
 ## Visual and Interaction Direction
-- Implemented understated information-sheet treatment: warm paper canvas, dark ink, sparse muted plum accent, system humanist sans typography, no images or remote font assets.
+- Existing build uses an understated information sheet with warm paper canvas, dark ink, sparse muted plum accent, system humanist sans typography, no images or remote font assets.
+- Requested theme revision: dark mode only. Proposed palette is plum-tinted charcoal `oklch(0.20 0.008 310)`, warm off-white text `oklch(0.92 0.006 75)`, muted labels `oklch(0.73 0.01 310)`, light plum headings `oklch(0.76 0.065 325)`, and fine rules `oklch(0.36 0.008 310)`. Revised design awaits approval; the page code has not changed.
+- Theme-only change preserves content, font metrics, spacing, layout, and static behavior. Fixed dark theme with no toggle, preference storage, or new assets; backend and prior HIPAA remediation remain outside scope.
 - Left-aligned clinic name followed by hours and contact in two desktop columns, stacked on mobile. Fine rules and whitespace instead of cards; no navigation or call-to-action buttons.
 - Contact details remain selectable display text. Static page with no animations or live open/closed status.
 - Visible notice: “Sample information for a deployment test. Not a real clinic listing.” Preserve readable contrast, semantic headings, and narrow-screen/zoom support.
