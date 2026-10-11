@@ -2,12 +2,15 @@
   "version": 7,
   "stage": "planning",
   "pending": {
-    "kind": "question",
+    "kind": "review",
     "phase": "planning",
-    "askedAt": "2026-10-11T11:13:16.007Z",
-    "requestedAt": "2026-10-11T11:13:16.007Z",
-    "chatBody": "1. What clinic name and opening hours should the page show?\n2. What contact details should you include—phone, email, address, or a combination? The contact section will simply display those details, with no form.\n\nIf you'd rather I choose sample content for this test site, just say go.",
-    "summary": "Awaiting clinic name, opening hours, and displayed contact details for minimal one-page test site."
+    "artifact": "roadmap",
+    "path": "memory/roadmap.md",
+    "version": 1,
+    "askedAt": "2026-10-11T11:14:49.642Z",
+    "requestedAt": "2026-10-11T11:14:49.642Z",
+    "chatBody": "Your clinic deployment test will be a single public page with fictional sample information.\n\n**First build ships:**\n- Clinic name: **Sample Clinic**.\n- Opening hours: Monday–Friday, 9 AM–5 PM; weekends closed.\n- Contact section: +1 (202) 555-0147, clinic@example.com, and 123 Example Street, Sample Town.\n- A brief notice identifying the information as sample content for a deployment test.\n\n**Deferred for later:**\n- Nothing planned beyond this page. Accounts, booking, forms, dashboards, integrations, and data collection remain out of scope.\n\nThe first build is also the complete MVP; success means the production URL displays the intended clinic information.\n\nReply **approve** or **continue** to proceed, or describe any changes.",
+    "summary": "One-page clinic deployment-test roadmap drafted with authorized fictional content; awaiting approval in planning."
   },
   "questionRounds": {
     "planning": 1,
@@ -16,9 +19,9 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": null,
-      "archivedPath": null,
-      "contentDigest": null,
+      "version": 1,
+      "archivedPath": "memory/roadmaps/v1-e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86.md",
+      "contentDigest": "sha256:e256fb85494f9e0305cbc8a33c0309a5b5a87ed0600431f7cb03663201122a86",
       "approvedVersion": null
     },
     "design": {
@@ -31,6 +34,6 @@
       "guidelinesArchivedPath": null
     }
   },
-  "lastSummary": "Minimal public clinic page only; no auth, booking, integrations, management, or data collection.",
-  "updatedAt": "2026-10-11T11:13:16.092Z"
+  "lastSummary": "One-page clinic deployment-test roadmap drafted with authorized fictional content; awaiting approval in planning.",
+  "updatedAt": "2026-10-11T11:14:49.734Z"
 }
