@@ -19,27 +19,22 @@ async function sendViaSpecodeRelay({
     throw new Error("Specode relay is not configured for this project.");
   }
 
-  const response = await fetch(relayUrl, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${relayToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ to, subject, html }),
-  });
+  try {
+    const response = await fetch(relayUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${relayToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ to, subject, html }),
+    });
 
-  const payload = await response.json().catch(() => null);
-
-  if (!response.ok) {
-    const detail =
-      payload &&
-      typeof payload === "object" &&
-      "error" in payload &&
-      typeof payload.error === "string"
-        ? payload.error
-        : response.statusText;
-
-    throw new Error(`Specode managed email failed: ${detail}`);
+    if (!response.ok) {
+      throw new Error("Specode managed email failed.");
+    }
+  } catch {
+    // External errors may contain message content or credentials. Never forward them.
+    throw new Error("Specode managed email failed.");
   }
 }
 
@@ -62,15 +57,20 @@ export async function sendEmail({
 
     const fromName = process.env.AUTH_EMAIL_NAME;
     const fromAddress = fromName ? `${fromName} <${fromEmail}>` : fromEmail;
-    const mailgun = new Mailgun(formData);
-    const client = mailgun.client({ username: "api", key: apiKey });
+    try {
+      const mailgun = new Mailgun(formData);
+      const client = mailgun.client({ username: "api", key: apiKey });
 
-    await client.messages.create(domain, {
-      from: fromAddress,
-      to,
-      subject,
-      html,
-    });
+      await client.messages.create(domain, {
+        from: fromAddress,
+        to,
+        subject,
+        html,
+      });
+    } catch {
+      // Discard provider exceptions without logging or attaching their details.
+      throw new Error("Custom email delivery failed.");
+    }
     return;
   }
 

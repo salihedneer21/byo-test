@@ -9,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 3,
-      "archivedPath": "memory/roadmaps/v3-bcf35c0f283637d0d012655477b74c2daab38ef4f53ce33f902fe964ed184261.md",
-      "contentDigest": "sha256:bcf35c0f283637d0d012655477b74c2daab38ef4f53ce33f902fe964ed184261",
-      "approvedVersion": 3
+      "version": 4,
+      "archivedPath": "memory/roadmaps/v4-0b5254d306ca734c7a93dc881b249a7bd2ee58a2af0b921eef94d39f596846b7.md",
+      "contentDigest": "sha256:0b5254d306ca734c7a93dc881b249a7bd2ee58a2af0b921eef94d39f596846b7",
+      "approvedVersion": 4
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -24,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v1-f9073d9938790d0b2ad6290be00908e27a6d646b2e7ce9729aa99af7ccd68991.json"
     }
   },
-  "lastSummary": "Recorded completed narrow HIPAA-AC-012 remediation and exact-ID verification. Public clinic page unchanged; production display verification remains pending.",
-  "updatedAt": "2026-10-11T12:11:46.119Z"
+  "lastSummary": "Recorded completed frozen HIPAA-LOG-002 remediation and exact targeted verification outcome; product scope and next steps unchanged.",
+  "updatedAt": "2026-10-11T13:09:38.004Z"
 }
