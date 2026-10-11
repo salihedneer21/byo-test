@@ -1,0 +1,96 @@
+{
+  "directionSummary": "A quiet, typography-led clinic information sheet on warm paper neutrals with dark ink and a sparse muted plum accent. One public static page, no imagery or additional assets. Direction chosen by judgment after explicit permission to proceed, without supplied references.",
+  "brand": {
+    "personality": ["plainspoken", "careful", "understated"],
+    "mood": "Calm and immediately legible, clearly a fictional deployment-test listing rather than an operating care service.",
+    "keywords": ["quiet", "readable", "orderly", "honest", "minimal"]
+  },
+  "palette": {
+    "background": "oklch(0.975 0.006 75)",
+    "surface": "oklch(0.99 0.003 75)",
+    "primary": "oklch(0.40 0.065 325)",
+    "secondary": [],
+    "text": "oklch(0.25 0.008 310)",
+    "mutedText": "oklch(0.46 0.01 310)",
+    "separator": "oklch(0.85 0.007 75)",
+    "strategy": "Restrained. Muted plum occupies less than 10% of the surface; no pure white or black.",
+    "semantic": {
+      "success": "Unused; do not invent success status.",
+      "warning": "Unused; sample-data notice is ordinary readable text.",
+      "error": "Unused; closed weekend hours are not an error state.",
+      "info": "Use dark ink text for the sample-data notice, not a colored badge."
+    }
+  },
+  "typography": {
+    "display": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; title 36–56px, weight 600, line-height 1.1, tracking -0.025em",
+    "body": "Same system humanist sans stack; 16–18px, weight 400, line-height 1.5–1.6",
+    "notes": [
+      "Section headings 20–24px at weight 600; field labels may use 14px at weight 500.",
+      "Use at least 1.25 scale contrast between body, section headings, and title.",
+      "Left-align text; maximum reading width 65ch; notice text at least 14px.",
+      "No external font request or downloaded typography asset."
+    ]
+  },
+  "layout": {
+    "direction": "Flat document canvas with a restrained, left-aligned typographic hierarchy.",
+    "navigation": "None. Single public page without a menu, sidebar, tabs, or sticky header.",
+    "density": "Comfortably spaced but short; no full-viewport promotional hero.",
+    "notes": [
+      "Viewing scene: daytime phone information lookup and desktop deployment inspection support a light, paper-like canvas.",
+      "Content max-width approximately 880px, horizontally centered.",
+      "Desktop vertical padding 64–88px; mobile 32–40px with 24px side gutters.",
+      "Clinic name precedes the information area by 40–56px.",
+      "Hours and contact use two columns above approximately 640px with a 48–64px gap; stack hours then contact on smaller screens.",
+      "Place a visible sample-data notice after the information sections.",
+      "Use fine horizontal rules and space instead of cards; do not force viewport filling.",
+      "No horizontal scrolling at 320px or 200% zoom; allow normal page scrolling."
+    ]
+  },
+  "components": {
+    "surfaces": [
+      "Flat canvas only; no shadows, glassmorphism, rounded panels, repeated cards, decorative icons, images, or logo assets.",
+      "The clinic name is the page identity."
+    ],
+    "forms": [
+      "None. No inputs, contact form, search, sign-in, or data collection."
+    ],
+    "actions": [
+      "No call-to-action buttons, booking, or integrations.",
+      "Display fictional contact information as selectable text without operational contact claims."
+    ],
+    "dataDisplay": [
+      "Use semantic sections and labeled text or description lists, not a data table or dashboard.",
+      "Clinic name: Sample Clinic.",
+      "Hours: Monday–Friday, 9:00 AM–5:00 PM; Saturday–Sunday, closed. Hours are local to the sample clinic.",
+      "Phone: +1 (202) 555-0147.",
+      "Email: clinic@example.com.",
+      "Address: 123 Example Street, Sample Town.",
+      "Notice: Sample information for a deployment test. Not a real clinic listing.",
+      "Allow email and address to wrap; no live open/closed badge or map."
+    ]
+  },
+  "motion": {
+    "tone": "Static; no motion required.",
+    "principles": [
+      "Render all information immediately without entrance animations, skeletons, or overlays.",
+      "Preserve native selection and zoom behavior.",
+      "Any interactive element introduced by a later approved change needs visible keyboard focus and reduced-motion support."
+    ]
+  },
+  "accessibility": [
+    "WCAG AA text contrast; verify final rendered colors.",
+    "One h1, meaningful section headings, semantic reading order matching the layout.",
+    "Keep all information readable without remote assets or script-dependent disclosure."
+  ],
+  "constraints": [
+    "Exactly one public static page; no additional screens or backend management.",
+    "No authentication, MFA, booking, forms, integrations, dashboards, tracking, or collection of personal information.",
+    "No invented services, testimonials, credentials, or promotional claims.",
+    "No status implying production deployment verification has already succeeded.",
+    "Avoid stock medical imagery, generic teal templates, gradients, and oversized heroes."
+  ],
+  "skillsUsed": ["frontend-design"],
+  "skillPackIds": ["frontend-design"],
+  "references": [],
+  "referenceQueries": []
+}

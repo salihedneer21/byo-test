@@ -12,4 +12,10 @@ Production deploy test clinic: a simple one-page clinic site with the clinic nam
 - Exactly one public page: clinic name, opening hours, and displayed phone/email/address. No authentication, booking, form, integrations, dashboards, or data collection.
 - Proposed fictional content: Sample Clinic; Monday–Friday 9 AM–5 PM, weekends closed; +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town. Identify the content as a deployment-test example.
 - The first build and full MVP have the same one-page scope. Success means the deployed public URL displays the intended clinic information.
-- Roadmap drafted for approval; design and implementation have not started.
+- Roadmap v1 approved. Design direction delegated explicitly by replying “go”; the design proposal is not yet approved. Implementation has not started.
+
+## Visual and Interaction Direction
+- Proposed understated information-sheet treatment: warm paper canvas, dark ink, sparse muted plum accent, system humanist sans typography, no images or remote font assets.
+- Left-aligned clinic name followed by hours and contact in two desktop columns, stacked on mobile. Fine rules and whitespace instead of cards; no navigation or call-to-action buttons.
+- Contact details remain selectable display text. Static page with no animations or live open/closed status.
+- Visible notice: “Sample information for a deployment test. Not a real clinic listing.” Preserve readable contrast, semantic headings, and narrow-screen/zoom support.
