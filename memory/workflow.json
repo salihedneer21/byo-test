@@ -1,0 +1,36 @@
+{
+  "version": 7,
+  "stage": "planning",
+  "pending": {
+    "kind": "question",
+    "phase": "planning",
+    "askedAt": "2026-10-11T11:13:16.007Z",
+    "requestedAt": "2026-10-11T11:13:16.007Z",
+    "chatBody": "1. What clinic name and opening hours should the page show?\n2. What contact details should you include—phone, email, address, or a combination? The contact section will simply display those details, with no form.\n\nIf you'd rather I choose sample content for this test site, just say go.",
+    "summary": "Awaiting clinic name, opening hours, and displayed contact details for minimal one-page test site."
+  },
+  "questionRounds": {
+    "planning": 1,
+    "design": 0
+  },
+  "artifacts": {
+    "roadmap": {
+      "path": "memory/roadmap.md",
+      "version": null,
+      "archivedPath": null,
+      "contentDigest": null,
+      "approvedVersion": null
+    },
+    "design": {
+      "path": "memory/design-brief.md",
+      "version": null,
+      "archivedPath": null,
+      "contentDigest": null,
+      "approvedVersion": null,
+      "guidelinesPath": "memory/design-guidelines.json",
+      "guidelinesArchivedPath": null
+    }
+  },
+  "lastSummary": "Minimal public clinic page only; no auth, booking, integrations, management, or data collection.",
+  "updatedAt": "2026-10-11T11:13:16.092Z"
+}
