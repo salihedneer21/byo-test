@@ -1,4 +1,4 @@
-// SPECODE-OWNED FILE. Production releases refuse to ship if it is changed.
+// SPECODE-OWNED FILE. Specode restores it on every deploy, so edits here never ship.
 //
 // Restricted frontend uploader: lets a release publish static assets over HTTPS
 // without the deploy key running any internal function. Specode sets a fresh

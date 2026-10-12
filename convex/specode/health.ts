@@ -1,4 +1,4 @@
-// SPECODE-OWNED FILE. Production releases refuse to ship if it is changed.
+// SPECODE-OWNED FILE. Specode restores it on every deploy, so edits here never ship.
 //
 // Public health check: which release the backend and the frontend are on.
 // Exposes no data and no secret values.

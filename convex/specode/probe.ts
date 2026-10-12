@@ -1,4 +1,4 @@
-// SPECODE-OWNED FILE. Production releases refuse to ship if it is changed.
+// SPECODE-OWNED FILE. Specode restores it on every deploy, so edits here never ship.
 //
 // No-op functions Specode calls to confirm the production deploy key can NOT
 // run internal functions or act as a user.

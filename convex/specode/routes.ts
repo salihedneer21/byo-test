@@ -1,4 +1,4 @@
-// SPECODE-OWNED FILE. Production releases refuse to ship if it is changed.
+// SPECODE-OWNED FILE. Specode restores it on every deploy, so edits here never ship.
 //
 // Registers the Specode routes on the app's HTTP router (convex/http.ts calls
 // registerSpecodeRoutes(http) once, after the static hosting routes).
