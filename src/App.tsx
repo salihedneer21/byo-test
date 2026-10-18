@@ -1,4 +1,5 @@
 import { SpecodeIframeTracker } from "@/components/layout/SpecodeIframeTracker";
+export const qaCheckOne: number = "one";
 
 export default function App() {
   return (
