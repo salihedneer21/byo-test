@@ -1,4 +1,5 @@
 import { SpecodeIframeTracker } from "@/components/layout/SpecodeIframeTracker";
+export const qaPublishCheck: number = "publish-test";
 
 export default function App() {
   return (
