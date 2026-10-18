@@ -5,7 +5,6 @@ import "./index.css";
 import App from "./App.tsx";
 import { convex, isConvexConfigured } from "./lib/convex.ts";
 import { authClient } from "./lib/auth-client.ts";
-export const qaCheckTwo: boolean = 2;
 
 const app = <App />;
 
