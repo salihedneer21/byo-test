@@ -2,12 +2,15 @@
   "version": 7,
   "stage": "planning",
   "pending": {
-    "kind": "question",
+    "kind": "review",
     "phase": "planning",
-    "askedAt": "2026-10-20T10:24:45.540Z",
-    "requestedAt": "2026-10-20T10:24:45.540Z",
-    "chatBody": "1. Do you want a private owner screen where you create staff accounts, or will you arrange account setup outside the website?\n\n2. How should you and your staff sign in and recover access—email and password with you handling forgotten-password resets, or another approach?\n\nIf you'd rather I choose the remaining details, just say go and I'll draft the revised plan.",
-    "summary": "Clarify owner account-creation surface and staff authentication/recovery; no patient accounts or confirmed scheduling."
+    "artifact": "roadmap",
+    "path": "memory/roadmap.md",
+    "version": 6,
+    "askedAt": "2026-10-20T10:27:15.375Z",
+    "requestedAt": "2026-10-20T10:27:15.375Z",
+    "chatBody": "Your revised plan adds saved appointment requests to Sample Clinic while preserving the existing information page, current hours, and previously fixed behavior.\n\n**What changes:**\n- First, add a public form with exactly **name, phone number, and preferred date**, plus a receipt shown only after the request is saved.\n- Next, add protected staff sign-in and a request list showing real submissions. Staff can mark requests **contacted**.\n- Then, add your private owner screen to create staff accounts, reset their passwords, and disable or restore access.\n- Use one email/password sign-in entry with role-based access. Patients do not need accounts, and staff cannot register themselves.\n- Keep requests distinct from bookings: a preferred date does not reserve a slot or confirm an appointment.\n\n**Deferred for later:**\n- Staff and owner screens follow the public-form slice; both remain required to complete the MVP.\n- Scheduling, patient accounts, automated notifications, and external integrations remain outside this plan.\n\n**Assumptions:** Staff recovery is handled by you without email delivery; initial owner access and owner recovery use controlled setup.\nThe fictional-clinic notice stays visible, so this remains a deployment-test service.\n\nReply **approve** or **continue** to proceed, or describe any changes.",
+    "summary": "Revised clinic roadmap drafted: public saved requests, staff contacted workflow, owner-managed closed accounts; awaiting approval."
   },
   "questionRounds": {
     "planning": 3,
@@ -16,9 +19,9 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 5,
-      "archivedPath": "memory/roadmaps/v5-33456b2430b2b390494f369e90b2cffd60b5577ca19f76782ed370b150fffef1.md",
-      "contentDigest": "sha256:33456b2430b2b390494f369e90b2cffd60b5577ca19f76782ed370b150fffef1",
+      "version": 6,
+      "archivedPath": "memory/roadmaps/v6-4908d11691f19a962f56fb4039112721c8fa402e1d8552c9a3d3cb49a1c60950.md",
+      "contentDigest": "sha256:4908d11691f19a962f56fb4039112721c8fa402e1d8552c9a3d3cb49a1c60950",
       "approvedVersion": 5
     },
     "design": {
@@ -31,6 +34,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.json"
     }
   },
-  "lastSummary": "Appointment request scope confirmed; clarifying owner account-creation surface and staff sign-in/recovery before roadmap revision.",
-  "updatedAt": "2026-10-20T10:24:45.619Z"
+  "lastSummary": "Revised clinic roadmap drafted: public saved requests, staff contacted workflow, owner-managed closed accounts; awaiting approval.",
+  "updatedAt": "2026-10-20T10:27:15.456Z"
 }

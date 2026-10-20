@@ -1,66 +1,81 @@
-# Sample Clinic - One-Page Clinic Deployment Test
+# Sample Clinic - Clinic Information and Appointment Requests
 
 ## Overall Vision
-A minimal public clinic website for testing production deployment. Visitors can read the clinic name, opening hours, and contact details on a single page. All content is fictional sample content, not a real clinic listing.
+Preserve the shipped clinic information page and add a minimal appointment-request service: patients submit their name, phone number, and preferred date without an account; clinic staff review saved requests and mark them contacted. The owner controls staff access. This remains a fictional deployment-test clinic, not a confirmed appointment-booking service.
 
 ## Personas
-- **Visitor**: Needs to quickly find the clinic's opening hours and phone, email, and address without signing in.
-- **Project owner**: Needs a small public site to verify that production deployment serves the intended page.
+- **Patient / public visitor**: Reads clinic details and submits a preferred date for staff follow-up without signing in.
+- **Clinic staff**: Uses an owner-created account to review requests and record that contact has occurred.
+- **Clinic owner**: Creates staff accounts, manages access, and resets staff passwords through a private screen.
 
 ## User Flows
-- **Find clinic information**: Open the public home page → read the clinic name and opening hours → find the phone, email, and address in the contact section. No form submission, account, or information collection occurs.
-- **Check deployment**: Open the deployed site's public URL → confirm that the clinic name, hours, and contact details are present and readable → finish the deployment test. No management interface is required.
+- **Find clinic information**: Open the public home page → read Sample Clinic's hours, phone, email, and address → see the fictional-listing notice. Information stays accessible without submitting a request.
+- **Submit an appointment request**: Open the public home page → enter exactly name, phone number, and preferred date in the request form → submit → save the request with a new status → display an on-page receipt only after successful persistence. Explain that receipt is not an appointment confirmation. Validation or saving errors keep entered values available for correction or retry. No patient account, visit type, reason for visit, payment, provider selection, time slot, cancellation, or rescheduling step.
+- **Review and contact requests**: Open the shared staff/owner sign-in page → sign in with an owner-created email/password account → route to the protected request list → read saved names, phone numbers, preferred dates, submission times, and new/contacted status → contact the patient outside the app → mark the request contacted → see the persisted status on return. The app does not place calls or send messages, approve appointments, or reserve dates.
+- **Manage staff access**: Open the shared sign-in page → sign in as owner → enter private staff account management → create an individual staff account with email and password → communicate credentials outside the app → reset a staff password or disable/re-enable access when needed. Only the owner manages accounts; disabled or unassigned accounts cannot read or change requests. Staff cannot create accounts or elevate their role.
+- **Recover access**: Staff contacts the owner outside the app → owner resets that staff account's password in the private management screen → staff signs in again. Initial owner access and owner recovery use controlled project setup, not public signup or automated email. No transactional emails, OTP sign-in, or MFA are part of this revision.
+- **Check deployment**: Open the deployed public page → verify existing information and notice → submit synthetic request data → later verify it through authorized staff access and persist a contacted status. Do not treat a source build as production verification.
 
 ## First Build Slice (Build Now)
 ### Goal
-Deliver the complete one-page clinic site. The public home page is the only product surface; no follow-on screens are needed.
+Extend the existing public front door with a real, narrowly scoped request form and saved-submission receipt. The shipped page remains the anchor; do not rebuild the clinic site. This slice proves public submission and persistence; the following slices add staff access and owner management to complete the MVP.
 
 ### Roles in First Build
-- Public visitor; no accounts or role gates.
+- Patient / public visitor only; no patient account or authenticated patient screen.
 
 ### Screens in First Build (typically 3-4, landing page is non-negotiable)
-1. Public home page with the clinic name, opening hours, and a contact section displaying sample phone, email, and address. This project intentionally requires only one screen.
+1. Existing public home page, preserving clinic information and the fictional-listing notice, with the three-field appointment-request form.
+2. Successful-submission state on the same page, reflecting an actually saved request without promising an appointment. Validation, pending submission, and failure states belong to the same form, not additional routes.
 
 ### First Build Rules
-- Keep the entire experience on one public page.
-- Display static sample information, clearly identified as fictional deployment-test content.
-- No authentication, booking, contact form, integrations, dashboards, or data collection.
-- No backend content management or additional screens.
-- Visual decisions belong to the later design phase, not this roadmap.
+- Preserve the shipped page and its existing content; this is an additive revision, not a replacement landing page.
+- Persist real form submissions. Do not use mock requests or show success before saving succeeds.
+- Public access permits submission only, never listing or fetching stored patient requests. Show the immediate receipt without introducing a public request lookup or patient portal.
+- Keep exactly the three requested input fields. Require usable name/phone/date values and reject past preferred dates; dates are preferences, not available slots.
+- Zero new third-party integrations. Do not add mock checkout, email, SMS, calendar, or notification UI.
+- No authentication for patients. Staff and owner screens wait for subsequent focused slices, without placeholder dashboards.
+- Target a focused engineer-day using existing infrastructure. No redesign or optional feature expansion.
 
 ## MVP Scope (P0)
-- One public page displaying the clinic name, opening hours, and contact information; the full MVP is identical to the first build slice.
-- Sample clinic name: **Sample Clinic**.
-- Sample opening hours: Monday–Friday, 9:00 AM–5:00 PM; Saturday–Sunday, closed. Hours are local to the sample clinic.
-- Sample phone: **+1 (202) 555-0147**.
-- Sample email: **clinic@example.com**.
-- Sample address: **123 Example Street, Sample Town** (fictional).
-- A short notice identifies the listing as sample information for a deployment test.
-- Visitors can read all information without signing in or providing personal details.
-- The public page loads at the production URL and exposes the intended information.
+- Preserve Sample Clinic and its sample contact details: +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town.
+- Preserve the shipped local opening hours: Monday–Friday 9:00 AM–5:00 PM; Saturday–Sunday 10:00 AM–2:00 PM. Correct older documentation that still says weekends are closed.
+- Preserve the exact visible notice: “Sample information for a deployment test. Not a real clinic listing.”
+- Public name, phone number, and preferred-date submission, successful-save receipt, and durable request storage. No patient email field or account.
+- Request workflow has only new and contacted states. Submission creates a new request; staff action records contacted. Neither state confirms or reserves an appointment.
+- A protected, simple request list displaying the saved fields, submission time, and status, ordered newest first; staff can mark new requests contacted. Repeated contact actions must not create contradictory states.
+- Shared email/password sign-in with individual owner-created accounts and role-based routing. No open staff/owner signup; no automatic privileges for an arbitrary authenticated account.
+- Active staff and owner can access this single clinic's request list and mark contacted. Only owner can create staff accounts, reset their passwords, and disable/re-enable access. Enforce these permissions on saved-data operations, not just screen visibility.
+- Private owner account-management screen. Owner credentials are provisioned through controlled setup; owner recovery remains a controlled setup operation. Owner-managed staff resets replace automated email recovery in this small closed-account product.
+- Reuse existing authentication and persistence infrastructure without undoing previously fixed behavior. No new automated email, SMS, calendar, payment, or notification integration is required for the agreed request workflow.
+- Provide seeded owner/staff role access for development verification where needed, using synthetic credentials through controlled setup rather than public signup or public credential display. Do not seed patient requests as a substitute for real submission.
 
 ## Build Later
 ### Soon After MVP
-- None planned; the requested product is complete with the one-page site.
+- None beyond the complete request, staff, and owner workflows specified above.
 
 ### Later Improvements
-- None requested.
+- None requested. Patient accounts, confirmed appointments, availability scheduling, and additional provider/clinic structures are not planned enhancements in this revision.
 
 ## Deferred Integrations
-- None. External integrations are outside the agreed scope, not planned follow-up work.
+- None planned. Automated email recovery is deliberately replaced by owner-managed staff resets; no notification or scheduling integration is needed to deliver this MVP.
 
 ## What's Been Implemented
-- [x] Public one-page clinic site.
-- [x] Sample clinic name, opening hours, and contact details.
-- [x] Approved responsive information-sheet design and visible fictional-content notice.
-- [x] Source review, TypeScript/ESLint checks, and Vite production asset build.
-- [x] Approved design v2 fixed dark theme: exact charcoal/off-white/plum palette and native dark color-scheme. Content, semantic markup, typography metrics, spacing, responsive layout, and static behavior preserved; no backend/auth changes. TypeScript/ESLint and Vite production asset build passed. Source-calculated text contrast is 14.30:1 for main text/notice, 7.56:1 for labels, and 8.22:1 for section headings; browser/rendered verification remains pending.
-- [x] Frozen HIPAA-AC-012 issue `1a3c685b-4b73-4b23-ae39-25b8419b9dee`: removed the custom browser-storage credential plugin and header replay, switched existing auth infrastructure to secure HttpOnly library-managed cookies, and added deletion-only cleanup of its two legacy caches. Public page unchanged. Frontend/backend TypeScript, ESLint, Vite asset build, backend sync, and diff review passed. Targeted verification `b7e120aa-96b1-406e-80cb-db7b8c51a403` completed with outcome `fixed`; other findings were outside this remediation scope.
-- [x] Frozen HIPAA-LOG-002 issue `9231cfa8-94a9-49fd-bb8f-9543deea5e0d`: replaced external relay, network, and custom email-provider failures with static non-sensitive errors; original exception details are neither logged nor attached. Delivery modes, configuration behavior, auth callback, and public page unchanged. Frontend/backend TypeScript, ESLint, Vite asset build, backend sync, and diff review passed; no existing automated tests were found. Targeted verification `c5116f40-0eb9-47f5-9d00-97ea7b8ff125` completed with outcome `fixed`, settling this evidence gap without asserting a prior disclosure. Other issue IDs remain outside this remediation scope.
-- [ ] Production page verified to display the intended information.
+- [x] Public one-page clinic site with sample name, hours, contact details, and fictional-content notice.
+- [x] Latest hours update: weekdays 9:00 AM–5:00 PM; weekends 10:00 AM–2:00 PM.
+- [x] Previously approved presentation and responsive behavior; frontend checks and production asset build passed. Rendered production verification remains pending.
+- [x] Prior HIPAA-AC-012 fix (`1a3c685b-4b73-4b23-ae39-25b8419b9dee`): retired browser-storage credential replay in favor of secure HttpOnly cookie-managed sessions and deletion-only legacy cache cleanup. Targeted verification `b7e120aa-96b1-406e-80cb-db7b8c51a403` reported fixed. Preserve this behavior.
+- [x] Prior HIPAA-LOG-002 fix (`9231cfa8-94a9-49fd-bb8f-9543deea5e0d`): static non-sensitive relay/provider failure errors without logging or attaching original exceptions. Targeted verification `c5116f40-0eb9-47f5-9d00-97ea7b8ff125` reported fixed. Preserve this behavior.
+- [ ] Public request form, real persistence, and receipt.
+- [ ] Closed-account sign-in, role gates, staff request list, and mark-contacted action.
+- [ ] Private owner staff creation, access management, and password resets.
+- [ ] Controlled owner bootstrap/recovery and synthetic seeded role access for verification.
+- [ ] Production page and complete request workflow verified.
 
-> Production deployment verification remains pending. No browser interaction testing was performed.
+> Update this section as features are built. Check items off as they become real. No request or account-management features are implemented yet.
 
 ## Next Steps
-- Deploy the completed page and verify that the public production URL displays the intended information.
-- No additional feature slices or integrations are planned.
+- Review this expanded product scope; then extend the previously approved design only to cover the new form and protected surfaces, without changing the existing site identity.
+- Slice 1: deliver public request submission and persisted receipt on the existing page, with no integrations.
+- Slice 2: introduce staff email/password entry, closed-account role access, the real request list, and mark-contacted action. Use controlled owner/staff provisioning for access verification; no public signup.
+- Slice 3: introduce the owner's private account-management screen with staff creation, access disable/re-enable, and owner-managed staff resets; verify owner bootstrap/recovery and finish the coherent MVP.
+- Verify preservation of existing page content and previously fixed behavior, then test submission, unauthorized access denial, authorized reads, contacted persistence, and disabled-account denial with synthetic data at the deployed URL.
