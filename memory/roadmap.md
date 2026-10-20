@@ -65,17 +65,18 @@ Extend the existing public front door with a real, narrowly scoped request form 
 - [x] Previously approved presentation and responsive behavior; frontend checks and production asset build passed. Rendered production verification remains pending.
 - [x] Prior HIPAA-AC-012 fix (`1a3c685b-4b73-4b23-ae39-25b8419b9dee`): retired browser-storage credential replay in favor of secure HttpOnly cookie-managed sessions and deletion-only legacy cache cleanup. Targeted verification `b7e120aa-96b1-406e-80cb-db7b8c51a403` reported fixed. Preserve this behavior.
 - [x] Prior HIPAA-LOG-002 fix (`9231cfa8-94a9-49fd-bb8f-9543deea5e0d`): static non-sensitive relay/provider failure errors without logging or attaching original exceptions. Targeted verification `c5116f40-0eb9-47f5-9d00-97ea7b8ff125` reported fixed. Preserve this behavior.
-- [ ] Public request form, real persistence, and receipt.
+- [x] Slice 1: public form with exactly Name, Phone number, Preferred date, shared browser/server validation, retained entries on errors, first-invalid focus, inline saving/failure/real saved receipt, and pending duplicate guard. Existing dark clinic information and exact notice preserved.
+- [x] Durable Convex `appointment_requests` creation with status `new`; public create-only endpoint returns no PHI or request ID. Inline atomic `PHI_WRITE` audit uses only non-sensitive metadata `{ op: "create" }`, with no fabricated anonymous actor/patient identity.
+- [x] Backend synced; frontend lint/typecheck, backend typecheck, and Vite asset build passed. Anonymous synthetic submission and durable row/audit verified through existing backend tools; invalid/past dates and invalid name/phone rejected; today accepted. Source-calculated new control/error/focus contrast passed. No browser or production verification performed.
 - [ ] Closed-account sign-in, role gates, staff request list, and mark-contacted action.
 - [ ] Private owner staff creation, access management, and password resets.
 - [ ] Controlled owner bootstrap/recovery and synthetic seeded role access for verification.
 - [ ] Production page and complete request workflow verified.
 
-> Update this section as features are built. Check items off as they become real. No request or account-management features are implemented yet.
+> Public submission and saving are implemented. Staff/owner access and account-management features remain deferred; no related placeholder UI or links shipped.
 
 ## Next Steps
-- Review this expanded product scope; then extend the previously approved design only to cover the new form and protected surfaces, without changing the existing site identity.
-- Slice 1: deliver public request submission and persisted receipt on the existing page, with no integrations.
+- Slice 1 is complete. Keep this pass limited to public submission and saving as approved; staff and owner surfaces wait for a subsequent request.
 - Slice 2: introduce staff email/password entry, closed-account role access, the real request list, and mark-contacted action. Use controlled owner/staff provisioning for access verification; no public signup.
 - Slice 3: introduce the owner's private account-management screen with staff creation, access disable/re-enable, and owner-managed staff resets; verify owner bootstrap/recovery and finish the coherent MVP.
 - Verify preservation of existing page content and previously fixed behavior, then test submission, unauthorized access denial, authorized reads, contacted persistence, and disabled-account denial with synthetic data at the deployed URL.

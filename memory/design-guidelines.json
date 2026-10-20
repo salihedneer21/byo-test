@@ -1,5 +1,5 @@
 {
-  "directionSummary": "The existing quiet clinic information sheet translated to your requested dark mode: plum-tinted charcoal, warm off-white text, and sparse light muted plum headings. Preserve all current content, typography, spacing, layout, and static behavior; no new assets or features.",
+  "directionSummary": "Preserve the dark clinic information sheet and add a modest inline three-field appointment-request form and real saved receipt below its information and fictional-listing notice. Keep plum-tinted charcoal, warm off-white text, muted plum, system fonts, and the existing responsive information layout. No confirmed booking or follow-up claims.",
   "brand": {
     "personality": ["plainspoken", "careful", "understated"],
     "mood": "Calm and immediately legible, clearly a fictional deployment-test listing rather than an operating care service.",
@@ -16,9 +16,9 @@
     "strategy": "Restrained dark equivalent of the original warm-paper/plum identity. Light muted plum occupies less than 10% of the surface; no pure white or black. Surface matches the canvas; no new panels.",
     "theme": "Fixed dark mode regardless of system preference; native color-scheme dark. No toggle, theme persistence, or light variant.",
     "semantic": {
-      "success": "Unused; do not invent success status.",
-      "warning": "Unused; sample-data notice is ordinary readable text.",
-      "error": "Unused; closed weekend hours are not an error state.",
+      "success": "Main text with optional existing plum emphasis for a receipt only after successful persistence; no booking badge.",
+      "warning": "Sample-data notice and synthetic-data guidance are ordinary readable text.",
+      "error": "oklch(0.78 0.09 20) with explicit inline error text; verify contrast, never color alone.",
       "info": "Use warm off-white main text for the sample-data notice, not a colored badge."
     }
   },
@@ -42,7 +42,8 @@
       "Desktop vertical padding 64–88px; mobile 32–40px with 24px side gutters.",
       "Clinic name precedes the information area by 40–56px.",
       "Hours and contact use two columns above approximately 640px with a 48–64px gap; stack hours then contact on smaller screens.",
-      "Place a visible sample-data notice after the information sections.",
+      "Keep the exact visible sample-data notice after the information sections, then add the request section with 40–56px spacing and a fine rule.",
+      "Request form stays single-column at all widths: approximately 480px maximum width on desktop, full available width on mobile. Preserve the existing two-column information area.",
       "Use fine horizontal rules and space instead of cards; do not force viewport filling.",
       "No horizontal scrolling at 320px or 200% zoom; allow normal page scrolling."
     ]
@@ -53,16 +54,22 @@
       "The clinic name is the page identity."
     ],
     "forms": [
-      "None. No inputs, contact form, search, sign-in, or data collection."
+      "One inline section headed Request an appointment. Exactly three required fields in order: Name, Phone number, Preferred date. No email, reason, time, consent checkbox, or extra field.",
+      "Before inputs: Deployment test only. Use a made-up name and phone number. Your preferred date is a request, not a confirmed appointment.",
+      "Visible associated labels; text input with name autocomplete, telephone input with tel autocomplete, native date input with dark color-scheme. No custom scheduling calendar.",
+      "Canvas-colored controls, contrast-qualified neutral borders, 4–6px radius, 16px text, minimum 44px height, 20–24px between field groups. Control boundaries and focus indicators need at least 3:1 contrast; decorative separator color alone is insufficient.",
+      "Validate usable required name/phone/date; no letters-only names or single rigid telephone mask. Reject past dates, permit today and later, and do not invent availability or weekend restrictions.",
+      "Specific field errors with aria-invalid and associated descriptions; focus first invalid field after submit. Retain all entries through validation, pending, and failure in page state, not URL or browser storage. No reload-resume promise."
     ],
     "actions": [
-      "No call-to-action buttons, booking, or integrations.",
+      "One Save request submit button, muted plum fill with charcoal text, 4–6px radius, at least 44px target, contrast-verified text, and visible keyboard focus.",
+      "Default, hover, pressed, focus, and pending/disabled states use restrained color changes. Pending label Saving… prevents duplicate submission. No confirmed booking or integrations.",
       "Display fictional contact information as selectable text without operational contact claims."
     ],
     "dataDisplay": [
       "Use semantic sections and labeled text or description lists, not a data table or dashboard.",
       "Clinic name: Sample Clinic.",
-      "Hours: Monday–Friday, 9:00 AM–5:00 PM; Saturday–Sunday, closed. Hours are local to the sample clinic.",
+      "Hours: Monday–Friday, 9:00 AM–5:00 PM; Saturday–Sunday, 10:00 AM–2:00 PM. Hours are local to the sample clinic.",
       "Phone: +1 (202) 555-0147.",
       "Email: clinic@example.com.",
       "Address: 123 Example Street, Sample Town.",
@@ -71,23 +78,31 @@
     ]
   },
   "motion": {
-    "tone": "Static; no motion required.",
+    "tone": "No decorative motion; optional short color transitions respect reduced motion.",
     "principles": [
       "Render all information immediately without entrance animations, skeletons, or overlays.",
       "Preserve native selection and zoom behavior.",
-      "Any interactive element introduced by a later approved change needs visible keyboard focus and reduced-motion support."
+      "Form controls and submit have visible focus; preserve native keyboard and date-picker behavior.",
+      "All feedback remains inline: no modal, new route, or blocking overlay. Announce saving and saved receipt politely, and announce failures.",
+      "Keep entries visible during saving; no optimistic success. Only after persistence replace the form with: Request saved. This is not a confirmed appointment. This fictional deployment-test clinic does not provide care or follow-up.",
+      "Receipt acknowledges this submission only. Do not repeat name/phone, offer public record lookup or share links, or promise contact or a reserved date.",
+      "Failure: We couldn't save your request. Your entries are still here. Please try again. Keep all inputs and re-enable Save request for retry. Never display raw backend exceptions."
     ]
   },
   "accessibility": [
     "WCAG AA text contrast: at least 4.5:1 for normal text and 3:1 for large text; verify final rendered main text, muted labels, notice, and plum headings against the dark canvas. Fine rules are decorative, not the sole means of conveying structure.",
     "One h1, meaningful section headings, semantic reading order matching the layout.",
-    "Keep all information readable without remote assets or script-dependent disclosure."
+    "Keep all clinic information readable without remote assets or script-dependent disclosure.",
+    "Visible required labels, associated help/errors, screen-reader announcements, logical keyboard order, 44px minimum targets, and no horizontal overflow at 320px or 200% zoom."
   ],
   "constraints": [
-    "Exactly one public static page; no additional screens or backend management.",
-    "Palette-only revision: preserve current font metrics, spacing, responsive layout, all sample content, and static behavior. No code or backend changes during design; prior HIPAA remediation is outside the theme revision scope.",
+    "Exactly one public page with the three-field request form, real saving, and inline receipt/states. No additional screens or backend-management UI.",
+    "Additive extension only: preserve current font metrics, existing information spacing and responsive layout, exact sample content/notice, and prior HIPAA remediation. No restyling.",
     "Do not add a theme toggle, preference storage, system-theme switching, or light-mode variant.",
-    "No authentication, MFA, booking, forms, integrations, dashboards, tracking, or collection of personal information.",
+    "No patient authentication, MFA, confirmed booking, intake or scheduling funnel, integrations, dashboards, tracking, or extra data collection beyond name/phone/preferred date.",
+    "Staff/owner/auth surfaces are deferred; no placeholder screens or navigation links. Do not design them in this extension.",
+    "Encourage synthetic submissions because this is a fictional deployment test; no care or follow-up promise. Public access permits submission only, not fetching or listing stored requests.",
+    "Persist real requests before receipt; reuse existing required audit handling without patient values in audit metadata. No audit viewer or expanded compliance UI.",
     "No invented services, testimonials, credentials, or promotional claims.",
     "No status implying production deployment verification has already succeeded.",
     "Avoid stock medical imagery, generic teal templates, gradients, and oversized heroes."

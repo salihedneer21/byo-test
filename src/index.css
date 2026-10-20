@@ -77,6 +77,124 @@
   max-width: 65ch;
 }
 
+.request-section {
+  margin-top: 3rem;
+  border-top: 1px solid oklch(0.36 0.008 310);
+  padding-top: 1.5rem;
+}
+
+.request-section h2 {
+  margin: 0 0 1rem;
+  color: oklch(0.76 0.065 325);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.request-content {
+  max-width: 30rem;
+}
+
+.request-guidance {
+  margin: 0 0 1.5rem;
+}
+
+.request-required {
+  margin: 0 0 1.25rem;
+  font-size: 0.875rem;
+  color: oklch(0.73 0.01 310);
+}
+
+.request-field {
+  margin-bottom: 1.5rem;
+}
+
+.request-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.request-field input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid oklch(0.62 0.01 310);
+  border-radius: 0.25rem;
+  background: oklch(0.20 0.008 310);
+  color: oklch(0.92 0.006 75);
+  font: inherit;
+  line-height: 1.5;
+}
+
+.request-field input:hover {
+  border-color: oklch(0.73 0.01 310);
+}
+
+.request-field input[aria-invalid="true"] {
+  border-color: oklch(0.78 0.09 20);
+}
+
+.request-field input[readonly] {
+  color: oklch(0.73 0.01 310);
+  cursor: wait;
+}
+
+.request-field input:focus-visible,
+.request-submit:focus-visible {
+  outline: 2px solid oklch(0.76 0.065 325);
+  outline-offset: 3px;
+}
+
+.request-submit {
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: oklch(0.76 0.065 325);
+  color: oklch(0.20 0.008 310);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.request-submit:hover:not(:disabled) {
+  background: oklch(0.81 0.065 325);
+}
+
+.request-submit:active:not(:disabled) {
+  background: oklch(0.70 0.065 325);
+}
+
+.request-submit:disabled {
+  background: oklch(0.62 0.025 325);
+  cursor: wait;
+}
+
+.request-error {
+  margin: 0.5rem 0 0;
+  color: oklch(0.78 0.09 20);
+  font-size: 0.875rem;
+}
+
+.request-failure:not(:empty) {
+  margin: 0 0 1rem;
+}
+
+.request-status {
+  margin: 0;
+}
+
+.request-status:not(:empty) {
+  margin-bottom: 1.5rem;
+}
+
 @media (min-width: 40rem) {
   .clinic-sheet {
     padding-block: 5rem;

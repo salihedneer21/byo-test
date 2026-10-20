@@ -1,17 +1,7 @@
 {
   "version": 7,
-  "stage": "planning",
-  "pending": {
-    "kind": "review",
-    "phase": "planning",
-    "artifact": "roadmap",
-    "path": "memory/roadmap.md",
-    "version": 6,
-    "askedAt": "2026-10-20T10:27:15.375Z",
-    "requestedAt": "2026-10-20T10:27:15.375Z",
-    "chatBody": "Your revised plan adds saved appointment requests to Sample Clinic while preserving the existing information page, current hours, and previously fixed behavior.\n\n**What changes:**\n- First, add a public form with exactly **name, phone number, and preferred date**, plus a receipt shown only after the request is saved.\n- Next, add protected staff sign-in and a request list showing real submissions. Staff can mark requests **contacted**.\n- Then, add your private owner screen to create staff accounts, reset their passwords, and disable or restore access.\n- Use one email/password sign-in entry with role-based access. Patients do not need accounts, and staff cannot register themselves.\n- Keep requests distinct from bookings: a preferred date does not reserve a slot or confirm an appointment.\n\n**Deferred for later:**\n- Staff and owner screens follow the public-form slice; both remain required to complete the MVP.\n- Scheduling, patient accounts, automated notifications, and external integrations remain outside this plan.\n\n**Assumptions:** Staff recovery is handled by you without email delivery; initial owner access and owner recovery use controlled setup.\nThe fictional-clinic notice stays visible, so this remains a deployment-test service.\n\nReply **approve** or **continue** to proceed, or describe any changes.",
-    "summary": "Revised clinic roadmap drafted: public saved requests, staff contacted workflow, owner-managed closed accounts; awaiting approval."
-  },
+  "stage": "implementation",
+  "pending": null,
   "questionRounds": {
     "planning": 3,
     "design": 1
@@ -19,21 +9,21 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 6,
-      "archivedPath": "memory/roadmaps/v6-4908d11691f19a962f56fb4039112721c8fa402e1d8552c9a3d3cb49a1c60950.md",
-      "contentDigest": "sha256:4908d11691f19a962f56fb4039112721c8fa402e1d8552c9a3d3cb49a1c60950",
-      "approvedVersion": 5
+      "version": 7,
+      "archivedPath": "memory/roadmaps/v7-b70d1088c94d83872178f251094f6c89e5af78ddfb62c71ab5f18f17ae28aa2b.md",
+      "contentDigest": "sha256:b70d1088c94d83872178f251094f6c89e5af78ddfb62c71ab5f18f17ae28aa2b",
+      "approvedVersion": 7
     },
     "design": {
       "path": "memory/design-brief.md",
-      "version": 2,
-      "archivedPath": "memory/design-briefs/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.md",
-      "contentDigest": "sha256:08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f",
-      "approvedVersion": 2,
+      "version": 3,
+      "archivedPath": "memory/design-briefs/v3-8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5.md",
+      "contentDigest": "sha256:8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5",
+      "approvedVersion": 3,
       "guidelinesPath": "memory/design-guidelines.json",
-      "guidelinesArchivedPath": "memory/design-guidelines/v2-08e5c71d70086ab4da049370e4caf84af2abb1334271fa4544030ab014ea5f1f.json"
+      "guidelinesArchivedPath": "memory/design-guidelines/v3-8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5.json"
     }
   },
-  "lastSummary": "Revised clinic roadmap drafted: public saved requests, staff contacted workflow, owner-managed closed accounts; awaiting approval.",
-  "updatedAt": "2026-10-20T10:27:15.456Z"
+  "lastSummary": "Recorded completed approved Slice 1 only: public three-field form, durable create-only saving and atomic non-sensitive audit, honest saved receipt, completed code/backend verification. Staff/owner features remain deferred; no new scope or design changes.",
+  "updatedAt": "2026-10-20T10:33:04.181Z"
 }

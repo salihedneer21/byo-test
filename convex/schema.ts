@@ -2,6 +2,13 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
+  // Patient-data surface. Public access is create-only; no public reads.
+  appointment_requests: defineTable({
+    name: v.string(),
+    phoneNumber: v.string(),
+    preferredDate: v.string(),
+    status: v.literal("new"),
+  }),
   audit_logs: defineTable({
     actor_id: v.optional(v.string()),
     action: v.union(v.literal("PHI_READ"), v.literal("PHI_WRITE")),

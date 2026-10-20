@@ -1,4 +1,5 @@
 import { SpecodeIframeTracker } from "@/components/layout/SpecodeIframeTracker";
+import { AppointmentRequestForm } from "@/components/AppointmentRequestForm";
 
 export default function App() {
   return (
@@ -44,6 +45,8 @@ export default function App() {
         <p className="sample-notice">
           Sample information for a deployment test. Not a real clinic listing.
         </p>
+
+        <AppointmentRequestForm />
       </main>
     </>
   );
