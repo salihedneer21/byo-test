@@ -10,9 +10,16 @@ Production deploy test clinic: a simple one-page clinic site with the clinic nam
 ## Locked Product Context
 - You authorized sample content by replying “go” to the initial clarification.
 - Exactly one public page: clinic name, opening hours, and displayed phone/email/address. No authentication, booking, form, integrations, dashboards, or data collection.
-- Implemented fictional content: Sample Clinic; Monday–Friday 9:00 AM–5:00 PM, Saturday–Sunday closed; +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town. The visible notice identifies it as deployment-test sample information.
+- Implemented fictional content: Sample Clinic; Monday–Friday 9:00 AM–5:00 PM, Saturday–Sunday 10:00 AM–2:00 PM (latest shipped hours change); +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town. The visible notice identifies it as deployment-test sample information.
 - The first build and full MVP have the same one-page scope. Success means the deployed public URL displays the intended clinic information.
 - Roadmap and design v2 approved; the complete static home page and palette-only dark revision are implemented. TypeScript/ESLint checks and Vite production asset build passed. Production URL display verification remains pending; no browser testing was performed. No further feature slices are planned.
+
+## Appointment Request Revision — In Discovery
+- Existing approved roadmap is v5; approved dark design is v2. No revised scope has been approved or implemented yet. The original no-form/no-auth scope above describes the shipped baseline, not the requested expansion.
+- Requested addition: public form with exactly patient name, phone number, and preferred date; persist submissions for clinic staff. Preferred dates are requests, not confirmed bookings; no time slots or real scheduling.
+- Confirmed: the owner creates staff accounts; staff can mark requests as contacted. No patient accounts requested.
+- Remaining decisions: whether account creation needs a private owner surface, plus staff sign-in and account-recovery method. No MFA, automated notifications, or external integrations authorized by this request.
+- Preserve existing shipped content, approved design, and prior HIPAA fixes. The current roadmap/design still describe closed weekend hours; source code already displays the updated weekend hours above.
 
 ## Visual and Interaction Direction
 - Existing build uses an understated dark information sheet, system humanist sans typography, no images or remote font assets.
