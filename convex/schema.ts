@@ -6,6 +6,7 @@ export default defineSchema({
   appointment_requests: defineTable({
     name: v.string(),
     phoneNumber: v.string(),
+    email: v.optional(v.string()),
     preferredDate: v.string(),
     status: v.literal("new"),
   }),

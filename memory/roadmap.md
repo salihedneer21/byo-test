@@ -1,7 +1,7 @@
 # Sample Clinic - Clinic Information and Appointment Requests
 
 ## Overall Vision
-Preserve the shipped clinic information page and add a minimal appointment-request service: patients submit their name, phone number, and preferred date without an account; clinic staff review saved requests and mark them contacted. The owner controls staff access. This remains a fictional deployment-test clinic, not a confirmed appointment-booking service.
+Preserve the shipped clinic information page and add a minimal appointment-request service: patients submit their name, phone number, preferred date, and optional email without an account; clinic staff review saved requests and mark them contacted. The owner controls staff access. This remains a fictional deployment-test clinic, not a confirmed appointment-booking service.
 
 ## Personas
 - **Patient / public visitor**: Reads clinic details and submits a preferred date for staff follow-up without signing in.
@@ -10,7 +10,7 @@ Preserve the shipped clinic information page and add a minimal appointment-reque
 
 ## User Flows
 - **Find clinic information**: Open the public home page → read Sample Clinic's hours, phone, email, and address → see the fictional-listing notice. Information stays accessible without submitting a request.
-- **Submit an appointment request**: Open the public home page → enter exactly name, phone number, and preferred date in the request form → submit → save the request with a new status → display an on-page receipt only after successful persistence. Explain that receipt is not an appointment confirmation. Validation or saving errors keep entered values available for correction or retry. No patient account, visit type, reason for visit, payment, provider selection, time slot, cancellation, or rescheduling step.
+- **Submit an appointment request**: Open the public home page → enter required name, phone number, and preferred date, plus an optional email in the request form → submit → save the request with a new status → display an on-page receipt only after successful persistence. Explain that receipt is not an appointment confirmation. Validation or saving errors keep entered values available for correction or retry. No patient account, visit type, reason for visit, payment, provider selection, time slot, cancellation, or rescheduling step.
 - **Review and contact requests**: Open the shared staff/owner sign-in page → sign in with an owner-created email/password account → route to the protected request list → read saved names, phone numbers, preferred dates, submission times, and new/contacted status → contact the patient outside the app → mark the request contacted → see the persisted status on return. The app does not place calls or send messages, approve appointments, or reserve dates.
 - **Manage staff access**: Open the shared sign-in page → sign in as owner → enter private staff account management → create an individual staff account with email and password → communicate credentials outside the app → reset a staff password or disable/re-enable access when needed. Only the owner manages accounts; disabled or unassigned accounts cannot read or change requests. Staff cannot create accounts or elevate their role.
 - **Recover access**: Staff contacts the owner outside the app → owner resets that staff account's password in the private management screen → staff signs in again. Initial owner access and owner recovery use controlled project setup, not public signup or automated email. No transactional emails, OTP sign-in, or MFA are part of this revision.
@@ -24,14 +24,14 @@ Extend the existing public front door with a real, narrowly scoped request form 
 - Patient / public visitor only; no patient account or authenticated patient screen.
 
 ### Screens in First Build (typically 3-4, landing page is non-negotiable)
-1. Existing public home page, preserving clinic information and the fictional-listing notice, with the three-field appointment-request form.
+1. Existing public home page, preserving clinic information and the fictional-listing notice, with the appointment-request form (required name, phone number, preferred date; optional email).
 2. Successful-submission state on the same page, reflecting an actually saved request without promising an appointment. Validation, pending submission, and failure states belong to the same form, not additional routes.
 
 ### First Build Rules
 - Preserve the shipped page and its existing content; this is an additive revision, not a replacement landing page.
 - Persist real form submissions. Do not use mock requests or show success before saving succeeds.
 - Public access permits submission only, never listing or fetching stored patient requests. Show the immediate receipt without introducing a public request lookup or patient portal.
-- Keep exactly the three requested input fields. Require usable name/phone/date values and reject past preferred dates; dates are preferences, not available slots.
+- Keep required name/phone/date and the explicitly authorized optional email field, with no other fields. Reject past preferred dates; dates are preferences, not available slots. Validate nonblank trimmed email in browser/server, save it trimmed, and omit blank email. Older rows and clients without email remain valid.
 - Zero new third-party integrations. Do not add mock checkout, email, SMS, calendar, or notification UI.
 - No authentication for patients. Staff and owner screens wait for subsequent focused slices, without placeholder dashboards.
 - Target a focused engineer-day using existing infrastructure. No redesign or optional feature expansion.
@@ -40,7 +40,7 @@ Extend the existing public front door with a real, narrowly scoped request form 
 - Preserve Sample Clinic and its sample contact details: +1 (202) 555-0147; clinic@example.com; 123 Example Street, Sample Town.
 - Preserve the shipped local opening hours: Monday–Friday 9:00 AM–5:00 PM; Saturday–Sunday 10:00 AM–2:00 PM. Correct older documentation that still says weekends are closed.
 - Preserve the exact visible notice: “Sample information for a deployment test. Not a real clinic listing.”
-- Public name, phone number, and preferred-date submission, successful-save receipt, and durable request storage. No patient email field or account.
+- Public name, phone number, preferred-date, and optional-email submission, successful-save receipt, and durable request storage. No patient account or email delivery. The latest optional-email request supersedes the earlier exactly-three-fields/no-email constraint only for this field.
 - Request workflow has only new and contacted states. Submission creates a new request; staff action records contacted. Neither state confirms or reserves an appointment.
 - A protected, simple request list displaying the saved fields, submission time, and status, ordered newest first; staff can mark new requests contacted. Repeated contact actions must not create contradictory states.
 - Shared email/password sign-in with individual owner-created accounts and role-based routing. No open staff/owner signup; no automatic privileges for an arbitrary authenticated account.
@@ -65,9 +65,11 @@ Extend the existing public front door with a real, narrowly scoped request form 
 - [x] Previously approved presentation and responsive behavior; frontend checks and production asset build passed. Rendered production verification remains pending.
 - [x] Prior HIPAA-AC-012 fix (`1a3c685b-4b73-4b23-ae39-25b8419b9dee`): retired browser-storage credential replay in favor of secure HttpOnly cookie-managed sessions and deletion-only legacy cache cleanup. Targeted verification `b7e120aa-96b1-406e-80cb-db7b8c51a403` reported fixed. Preserve this behavior.
 - [x] Prior HIPAA-LOG-002 fix (`9231cfa8-94a9-49fd-bb8f-9543deea5e0d`): static non-sensitive relay/provider failure errors without logging or attaching original exceptions. Targeted verification `c5116f40-0eb9-47f5-9d00-97ea7b8ff125` reported fixed. Preserve this behavior.
-- [x] Slice 1: public form with exactly Name, Phone number, Preferred date, shared browser/server validation, retained entries on errors, first-invalid focus, inline saving/failure/real saved receipt, and pending duplicate guard. Existing dark clinic information and exact notice preserved.
+- [x] Slice 1: public form with required Name, Phone number, Preferred date, shared browser/server validation, retained entries on errors, first-invalid focus, inline saving/failure/real saved receipt, and pending duplicate guard. Existing dark clinic information and exact notice preserved.
 - [x] Durable Convex `appointment_requests` creation with status `new`; public create-only endpoint returns no PHI or request ID. Inline atomic `PHI_WRITE` audit uses only non-sensitive metadata `{ op: "create" }`, with no fabricated anonymous actor/patient identity.
 - [x] Backend synced; frontend lint/typecheck, backend typecheck, and Vite asset build passed. Anonymous synthetic submission and durable row/audit verified through existing backend tools; invalid/past dates and invalid name/phone rejected; today accepted. Source-calculated new control/error/focus contrast passed. No browser or production verification performed.
+- [x] Optional Email field using existing styling, native email type/autocomplete, shared browser/server format and 254-character validation, associated static errors, retained values on failure, and clearing only on save success. Optional schema/mutation contract preserves legacy rows/clients; blank/whitespace email omitted, supplied email trimmed. No delivery, public reads, or receipt/audit PHI added.
+- [x] Optional-email verification: lint/frontend+backend typechecks, Vite asset build, and backend sync passed. Shared synthetic validation and synced mutation/storage checks passed for omitted, blank, whitespace, valid trimmed, malformed, and overlength email; saved rows each retain metadata-only audit `{ op: "create" }`. No browser testing or production publishing performed.
 - [ ] Closed-account sign-in, role gates, staff request list, and mark-contacted action.
 - [ ] Private owner staff creation, access management, and password resets.
 - [ ] Controlled owner bootstrap/recovery and synthetic seeded role access for verification.
@@ -76,7 +78,7 @@ Extend the existing public front door with a real, narrowly scoped request form 
 > Public submission and saving are implemented. Staff/owner access and account-management features remain deferred; no related placeholder UI or links shipped.
 
 ## Next Steps
-- Slice 1 is complete. Keep this pass limited to public submission and saving as approved; staff and owner surfaces wait for a subsequent request.
+- Slice 1 and the explicitly requested optional-email addition are complete. Keep this pass limited to public submission and saving; no email delivery. Staff and owner surfaces wait for a subsequent request.
 - Slice 2: introduce staff email/password entry, closed-account role access, the real request list, and mark-contacted action. Use controlled owner/staff provisioning for access verification; no public signup.
 - Slice 3: introduce the owner's private account-management screen with staff creation, access disable/re-enable, and owner-managed staff resets; verify owner bootstrap/recovery and finish the coherent MVP.
 - Verify preservation of existing page content and previously fixed behavior, then test submission, unauthorized access denial, authorized reads, contacted persistence, and disabled-account denial with synthetic data at the deployed URL.

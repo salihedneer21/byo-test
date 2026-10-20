@@ -9,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 7,
-      "archivedPath": "memory/roadmaps/v7-b70d1088c94d83872178f251094f6c89e5af78ddfb62c71ab5f18f17ae28aa2b.md",
-      "contentDigest": "sha256:b70d1088c94d83872178f251094f6c89e5af78ddfb62c71ab5f18f17ae28aa2b",
-      "approvedVersion": 7
+      "version": 8,
+      "archivedPath": "memory/roadmaps/v8-01c9bbf98eb0aee0593d70e908318c2e6fe79ada237fbd4e5d312bb8c7fe9b13.md",
+      "contentDigest": "sha256:01c9bbf98eb0aee0593d70e908318c2e6fe79ada237fbd4e5d312bb8c7fe9b13",
+      "approvedVersion": 8
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -24,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v3-8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5.json"
     }
   },
-  "lastSummary": "Recorded completed approved Slice 1 only: public three-field form, durable create-only saving and atomic non-sensitive audit, honest saved receipt, completed code/backend verification. Staff/owner features remain deferred; no new scope or design changes.",
-  "updatedAt": "2026-10-20T10:33:04.181Z"
+  "lastSummary": "Implemented the explicitly authorized optional-email addition; public submission remains the only shipped slice. Verified validation, trimmed/omitted persistence, unchanged PHI-free receipt and audit, lint/typechecks/build and backend sync.",
+  "updatedAt": "2026-10-20T10:41:31.703Z"
 }

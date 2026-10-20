@@ -1,6 +1,7 @@
 export type AppointmentRequestInput = {
   name: string;
   phoneNumber: string;
+  email?: string;
   preferredDate: string;
 };
 
@@ -26,6 +27,11 @@ export function validateAppointmentRequest(
   const digits = phone.replace(/\D/g, "");
   if (!/^\+?[\d\s().-]+$/.test(phone) || phone.length > 40 || digits.length < 7 || digits.length > 15 || /[\p{Cc}]/u.test(phone)) {
     errors.phoneNumber = "Enter a phone number with 7 to 15 digits. Spaces, +, parentheses, dots and hyphens are allowed.";
+  }
+
+  const email = input.email?.trim();
+  if (email && (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || /[\p{Cc}\p{Cf}]/u.test(email))) {
+    errors.email = "Enter a valid email address of up to 254 characters, or leave it blank.";
   }
 
   const date = input.preferredDate;

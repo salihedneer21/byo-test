@@ -11,11 +11,12 @@ import {
 const fields = [
   { key: "name", label: "Name", type: "text", autoComplete: "name", maxLength: 100 },
   { key: "phoneNumber", label: "Phone number", type: "tel", autoComplete: "tel", maxLength: 40 },
+  { key: "email", label: "Email (optional)", type: "email", autoComplete: "email", maxLength: 254 },
   { key: "preferredDate", label: "Preferred date", type: "date", autoComplete: "off" },
 ] as const;
 
 export function AppointmentRequestForm() {
-  const [values, setValues] = useState<AppointmentRequestInput>({ name: "", phoneNumber: "", preferredDate: "" });
+  const [values, setValues] = useState<AppointmentRequestInput>({ name: "", phoneNumber: "", email: "", preferredDate: "" });
   const [errors, setErrors] = useState<RequestErrors>({});
   const [pending, setPending] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -45,7 +46,7 @@ export function AppointmentRequestForm() {
       const result = await convex.mutation(api.appointmentRequests.submit, values);
       if (result.saved) {
         setSaved(true);
-        setValues({ name: "", phoneNumber: "", preferredDate: "" });
+        setValues({ name: "", phoneNumber: "", email: "", preferredDate: "" });
       } else {
         showErrors(result.errors);
       }
@@ -70,10 +71,10 @@ export function AppointmentRequestForm() {
         {!saved && (
           <>
             <p id="request-guidance" className="request-guidance">
-              Deployment test only. Use a made-up name and phone number. Your preferred date is a request, not a confirmed appointment.
+              Deployment test only. Use a made-up name and phone number. If you include an email, use a fictional address such as patient@example.com. Your preferred date is a request, not a confirmed appointment.
             </p>
             <form noValidate onSubmit={submit} aria-describedby="request-guidance" aria-busy={pending}>
-              <p className="request-required">All fields are required.</p>
+              <p className="request-required">Name, phone number and preferred date are required. Email is optional.</p>
               {fields.map((field) => (
                 <div className="request-field" key={field.key}>
                   <label htmlFor={`request-${field.key}`}>{field.label}</label>
@@ -85,9 +86,9 @@ export function AppointmentRequestForm() {
                     autoComplete={field.autoComplete}
                     maxLength={"maxLength" in field ? field.maxLength : undefined}
                     min={field.key === "preferredDate" ? todayDate() : undefined}
-                    required
+                    required={field.key !== "email"}
                     readOnly={pending}
-                    value={values[field.key]}
+                    value={values[field.key] ?? ""}
                     aria-invalid={Boolean(errors[field.key])}
                     aria-describedby={errors[field.key] ? `request-${field.key}-error` : undefined}
                     onChange={(event) => {

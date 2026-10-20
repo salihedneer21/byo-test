@@ -8,6 +8,7 @@ export const submit = mutation({
   args: {
     name: v.string(),
     phoneNumber: v.string(),
+    email: v.optional(v.string()),
     preferredDate: v.string(),
   },
   returns: v.union(
@@ -17,6 +18,7 @@ export const submit = mutation({
       errors: v.object({
         name: v.optional(v.string()),
         phoneNumber: v.optional(v.string()),
+        email: v.optional(v.string()),
         preferredDate: v.optional(v.string()),
       }),
     }),
@@ -25,9 +27,11 @@ export const submit = mutation({
     const errors = validateAppointmentRequest(args);
     if (Object.keys(errors).length > 0) return { saved: false as const, errors };
 
+    const email = args.email?.trim();
     const requestId = await ctx.db.insert("appointment_requests", {
       name: args.name.trim(),
       phoneNumber: args.phoneNumber.trim(),
+      ...(email ? { email } : {}),
       preferredDate: args.preferredDate,
       status: "new",
     });
