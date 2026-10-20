@@ -19,7 +19,9 @@ export function validateAppointmentRequest(
 ): RequestErrors {
   const errors: RequestErrors = {};
   const name = input.name.trim();
-  if (!name || !/\p{L}/u.test(name) || name.length > 100 || /[\p{Cc}\p{Cf}]/u.test(name)) {
+  if (input.name.length > 100) {
+    errors.name = "Name must be 100 characters or fewer.";
+  } else if (!name || !/\p{L}/u.test(name) || /[\p{Cc}\p{Cf}]/u.test(name)) {
     errors.name = "Enter a name of up to 100 characters.";
   }
 

@@ -9,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 9,
-      "archivedPath": "memory/roadmaps/v9-6c12a2352a6e14e77f20a5439115f1408373e0af4cc0e96b2f05214bdcebe18b.md",
-      "contentDigest": "sha256:6c12a2352a6e14e77f20a5439115f1408373e0af4cc0e96b2f05214bdcebe18b",
-      "approvedVersion": 9
+      "version": 10,
+      "archivedPath": "memory/roadmaps/v10-289d99d1feee5c6bed5d646123330f306b484ca2ece913eed33b9224bb916400.md",
+      "contentDigest": "sha256:289d99d1feee5c6bed5d646123330f306b484ca2ece913eed33b9224bb916400",
+      "approvedVersion": 10
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -24,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v3-8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5.json"
     }
   },
-  "lastSummary": "Implemented the approved incremental server-saved submission timestamp and immediate local-time receipt; recorded actual native checks and preserved staff/owner deferrals.",
-  "updatedAt": "2026-10-20T11:32:29.973Z"
+  "lastSummary": "Recorded completed name-length refinement and native/synced backend verification; preserved public-only scope and deferred staff/owner slices.",
+  "updatedAt": "2026-10-20T11:40:40.055Z"
 }
