@@ -1,7 +1,42 @@
 import { v } from "convex/values";
-import { mutation } from "./_generated/server";
+import { internalAction, internalQuery, mutation } from "./_generated/server";
+import { internal } from "./_generated/api";
 import { recordAuditLog } from "./lib/audit";
-import { validateAppointmentRequest } from "../shared/appointmentRequest";
+import { todayDate, validateAppointmentRequest } from "../shared/appointmentRequest";
+
+// Implementation detail: server callers use the audited action below.
+// Server time defines a half-open UTC day, never the preferred appointment date.
+export const _countSubmittedToday = internalQuery({
+  args: {},
+  returns: v.number(),
+  handler: async (ctx): Promise<number> => {
+    const start = Date.parse(`${todayDate()}T00:00:00.000Z`);
+    const end = start + 24 * 60 * 60 * 1000;
+    let count = 0;
+    for await (const request of ctx.db.query("appointment_requests")) {
+      const submittedAt = request.submittedAt ?? request._creationTime;
+      if (submittedAt >= start && submittedAt < end) count += 1;
+    }
+    return count;
+  },
+});
+
+// No public count endpoint until an authorized staff surface is approved.
+// Audit must succeed before releasing even this numeric aggregate.
+export const countSubmittedToday = internalAction({
+  args: {},
+  returns: v.number(),
+  handler: async (ctx): Promise<number> => {
+    const count = await ctx.runQuery(internal.appointmentRequests._countSubmittedToday, {});
+    await ctx.runMutation(internal.lib.audit._record, {
+      action: "PHI_READ",
+      resource_type: "appointment_requests",
+      resource_id: "*",
+      metadata: { op: "count_today" },
+    });
+    return count;
+  },
+});
 
 // Intentionally no public get/list endpoint or record ID in the receipt.
 export const submit = mutation({
