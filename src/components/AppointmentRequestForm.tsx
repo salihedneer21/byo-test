@@ -19,7 +19,8 @@ export function AppointmentRequestForm() {
   const [values, setValues] = useState<AppointmentRequestInput>({ name: "", phoneNumber: "", email: "", preferredDate: "" });
   const [errors, setErrors] = useState<RequestErrors>({});
   const [pending, setPending] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [submittedAt, setSubmittedAt] = useState<number | null>(null);
+  const saved = submittedAt !== null;
   const [failed, setFailed] = useState(false);
   const inFlight = useRef(false);
   const inputs = useRef<Partial<Record<keyof AppointmentRequestInput, HTMLInputElement | null>>>({});
@@ -45,7 +46,7 @@ export function AppointmentRequestForm() {
       if (!isConvexConfigured) throw new Error("Saving unavailable");
       const result = await convex.mutation(api.appointmentRequests.submit, values);
       if (result.saved) {
-        setSaved(true);
+        setSubmittedAt(result.submittedAt);
         setValues({ name: "", phoneNumber: "", email: "", preferredDate: "" });
       } else {
         showErrors(result.errors);
@@ -64,9 +65,22 @@ export function AppointmentRequestForm() {
       <h2 id="request-heading">Request an appointment</h2>
       <div className="request-content">
         <p role="status" aria-live="polite" aria-atomic="true" className="request-status">
-          {saved
-            ? "Request saved. This is not a confirmed appointment. This fictional deployment-test clinic does not provide care or follow-up."
-            : pending ? "Saving…" : ""}
+          {submittedAt !== null ? (
+            <>
+              Request saved. This is not a confirmed appointment. This fictional deployment-test clinic does not provide care or follow-up.
+              {" "}Submitted: <time dateTime={new Date(submittedAt).toISOString()}>
+                {new Intl.DateTimeFormat(undefined, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "2-digit",
+                  second: "2-digit",
+                  timeZoneName: "long",
+                }).format(submittedAt)}
+              </time>
+            </>
+          ) : pending ? "Saving…" : ""}
         </p>
         {!saved && (
           <>

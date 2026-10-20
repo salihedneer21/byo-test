@@ -29,7 +29,7 @@ Extend the existing public front door with a real, narrowly scoped request form 
 
 ### First Build Rules
 - Preserve the shipped page and its existing content; this is an additive revision, not a replacement landing page.
-- Persist real form submissions. Do not use mock requests or show success before saving succeeds.
+- Persist real form submissions. Do not use mock requests or show success before saving succeeds. Store a server-assigned submission timestamp and return that same saved timestamp only after the request and inline audit succeed; show labeled submitted date/time in the visitor's local timezone with an explicit timezone and semantic time markup. No public lookup or patient-value echoes.
 - Public access permits submission only, never listing or fetching stored patient requests. Show the immediate receipt without introducing a public request lookup or patient portal.
 - Keep required name/phone/date and the explicitly authorized optional email field, with no other fields. Reject past preferred dates; dates are preferences, not available slots. Validate nonblank trimmed email in browser/server, save it trimmed, and omit blank email. Older rows and clients without email remain valid.
 - Zero new third-party integrations. Do not add mock checkout, email, SMS, calendar, or notification UI.
@@ -70,6 +70,8 @@ Extend the existing public front door with a real, narrowly scoped request form 
 - [x] Backend synced; frontend lint/typecheck, backend typecheck, and Vite asset build passed. Anonymous synthetic submission and durable row/audit verified through existing backend tools; invalid/past dates and invalid name/phone rejected; today accepted. Source-calculated new control/error/focus contrast passed. No browser or production verification performed.
 - [x] Optional Email field using existing styling, native email type/autocomplete, shared browser/server format and 254-character validation, associated static errors, retained values on failure, and clearing only on save success. Optional schema/mutation contract preserves legacy rows/clients; blank/whitespace email omitted, supplied email trimmed. No delivery, public reads, or receipt/audit PHI added.
 - [x] Optional-email verification: lint/frontend+backend typechecks, Vite asset build, and backend sync passed. Shared synthetic validation and synced mutation/storage checks passed for omitted, blank, whitespace, valid trimmed, malformed, and overlength email; saved rows each retain metadata-only audit `{ op: "create" }`. No browser testing or production publishing performed.
+- [x] Submission timestamp: server assigns `submittedAt` once, stores it with the request, and returns only saved outcome plus that same timestamp after the atomic write/audit. Optional schema field keeps historical rows valid. Inline receipt adds labeled local submitted date/time, explicit timezone, and semantic ISO time markup while preserving exact not-confirmed/no-care copy, optional email, retained errors, and duplicate guard. No new PHI read endpoints, IDs, patient echoes, timestamp logging/storage/URLs, or audit metadata keys.
+- [x] Timestamp verification: lint/frontend+backend typechecks, Vite asset build, and backend sync passed. Native synthetic checks confirmed saved/returned timestamp equality, metadata-only write audit, optional-email preservation, and invalid-input rejection without timestamps or persisted requests. Native timezone formatting passed in three timezones after correcting a check's IANA alias assumption. No browser testing or production publishing.
 - [ ] Closed-account sign-in, role gates, staff request list, and mark-contacted action.
 - [ ] Private owner staff creation, access management, and password resets.
 - [ ] Controlled owner bootstrap/recovery and synthetic seeded role access for verification.
@@ -78,7 +80,7 @@ Extend the existing public front door with a real, narrowly scoped request form 
 > Public submission and saving are implemented. Staff/owner access and account-management features remain deferred; no related placeholder UI or links shipped.
 
 ## Next Steps
-- Slice 1 and the explicitly requested optional-email addition are complete. Keep this pass limited to public submission and saving; no email delivery. Staff and owner surfaces wait for a subsequent request.
+- Slice 1, optional email, and the saved submission-time receipt are complete. Keep the current experience limited to public submission and saving; no email delivery. Staff and owner surfaces wait for a subsequent request.
 - Slice 2: introduce staff email/password entry, closed-account role access, the real request list, and mark-contacted action. Use controlled owner/staff provisioning for access verification; no public signup.
 - Slice 3: introduce the owner's private account-management screen with staff creation, access disable/re-enable, and owner-managed staff resets; verify owner bootstrap/recovery and finish the coherent MVP.
 - Verify preservation of existing page content and previously fixed behavior, then test submission, unauthorized access denial, authorized reads, contacted persistence, and disabled-account denial with synthetic data at the deployed URL.

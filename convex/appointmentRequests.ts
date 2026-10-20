@@ -12,7 +12,7 @@ export const submit = mutation({
     preferredDate: v.string(),
   },
   returns: v.union(
-    v.object({ saved: v.literal(true) }),
+    v.object({ saved: v.literal(true), submittedAt: v.number() }),
     v.object({
       saved: v.literal(false),
       errors: v.object({
@@ -28,11 +28,13 @@ export const submit = mutation({
     if (Object.keys(errors).length > 0) return { saved: false as const, errors };
 
     const email = args.email?.trim();
+    const submittedAt = Date.now();
     const requestId = await ctx.db.insert("appointment_requests", {
       name: args.name.trim(),
       phoneNumber: args.phoneNumber.trim(),
       ...(email ? { email } : {}),
       preferredDate: args.preferredDate,
+      submittedAt,
       status: "new",
     });
     await recordAuditLog(ctx, {
@@ -43,6 +45,6 @@ export const submit = mutation({
     });
     // The insert and audit are atomic. Anonymous callers have no fabricated
     // actor/patient identity. Never return submitted patient values.
-    return { saved: true as const };
+    return { saved: true as const, submittedAt };
   },
 });

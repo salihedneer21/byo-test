@@ -9,10 +9,10 @@
   "artifacts": {
     "roadmap": {
       "path": "memory/roadmap.md",
-      "version": 8,
-      "archivedPath": "memory/roadmaps/v8-01c9bbf98eb0aee0593d70e908318c2e6fe79ada237fbd4e5d312bb8c7fe9b13.md",
-      "contentDigest": "sha256:01c9bbf98eb0aee0593d70e908318c2e6fe79ada237fbd4e5d312bb8c7fe9b13",
-      "approvedVersion": 8
+      "version": 9,
+      "archivedPath": "memory/roadmaps/v9-6c12a2352a6e14e77f20a5439115f1408373e0af4cc0e96b2f05214bdcebe18b.md",
+      "contentDigest": "sha256:6c12a2352a6e14e77f20a5439115f1408373e0af4cc0e96b2f05214bdcebe18b",
+      "approvedVersion": 9
     },
     "design": {
       "path": "memory/design-brief.md",
@@ -24,6 +24,6 @@
       "guidelinesArchivedPath": "memory/design-guidelines/v3-8e5d003a4ade43bb8a1f0857de4995173c6accd9ac7a7300e5a05eac836d6ea5.json"
     }
   },
-  "lastSummary": "Implemented the explicitly authorized optional-email addition; public submission remains the only shipped slice. Verified validation, trimmed/omitted persistence, unchanged PHI-free receipt and audit, lint/typechecks/build and backend sync.",
-  "updatedAt": "2026-10-20T10:41:31.703Z"
+  "lastSummary": "Implemented the approved incremental server-saved submission timestamp and immediate local-time receipt; recorded actual native checks and preserved staff/owner deferrals.",
+  "updatedAt": "2026-10-20T11:32:29.973Z"
 }

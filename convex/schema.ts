@@ -8,6 +8,8 @@ export default defineSchema({
     phoneNumber: v.string(),
     email: v.optional(v.string()),
     preferredDate: v.string(),
+    // Optional for historical requests created before submission receipts.
+    submittedAt: v.optional(v.number()),
     status: v.literal("new"),
   }),
   audit_logs: defineTable({
