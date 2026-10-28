@@ -16,5 +16,3 @@ export const health = httpAction(async (ctx) => {
     { headers: { "cache-control": "no-store" } },
   );
 });
-
-// developer note: checked by our uptime monitor
