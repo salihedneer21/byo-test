@@ -28,7 +28,7 @@ export default function App() {
             <dl>
               <div className="information-entry">
                 <dt>Phone</dt>
-                <dd>+1 (202) 555-0147</dd>
+                <dd>+1 (202) 555-0199 (updated on GitHub)</dd>
               </div>
               <div className="information-entry">
                 <dt>Email</dt>
