@@ -83,3 +83,10 @@ export const submit = mutation({
     return { saved: true as const, submittedAt };
   },
 });
+
+// Developer: front desk notifications go to this address (set per deployment).
+export const frontDeskAddress = internalQuery({
+  args: {},
+  returns: v.union(v.string(), v.null()),
+  handler: async () => process.env.FRONT_DESK_NOTIFY_EMAIL ?? null,
+});
