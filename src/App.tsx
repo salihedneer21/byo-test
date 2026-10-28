@@ -32,7 +32,7 @@ export default function App() {
               </div>
               <div className="information-entry">
                 <dt>Email</dt>
-                <dd>hello@sampleclinic.example</dd>
+                <dd>frontdesk@example.com</dd>
               </div>
               <div className="information-entry">
                 <dt>Address</dt>
