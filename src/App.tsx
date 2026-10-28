@@ -43,7 +43,7 @@ export default function App() {
         </div>
 
         <p className="sample-notice">
-          Sample information for a deployment test. Not a real clinic listing.
+          Sample information for a deployment test. Not a real clinic.
         </p>
 
         <AppointmentRequestForm />
