@@ -6,7 +6,7 @@ export default function App() {
     <>
       <SpecodeIframeTracker />
       <main className="clinic-sheet">
-        <h1>Sample Clinic</h1>
+        <h1>Sample Clinic Downtown</h1>
 
         <div className="clinic-information">
           <section aria-labelledby="hours-heading">
