@@ -4,4 +4,4 @@ jobs:
   noop:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "developer CI placeholder"
+      - run: echo "developer CI placeholder v2"
