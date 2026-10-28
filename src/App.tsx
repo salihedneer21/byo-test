@@ -18,7 +18,7 @@ export default function App() {
               </div>
               <div className="information-entry">
                 <dt>Saturday–Sunday</dt>
-                <dd>10:00 AM–2:00 PM</dd>
+                <dd>Closed on weekends</dd>
               </div>
             </dl>
           </section>
