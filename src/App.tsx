@@ -6,6 +6,11 @@ export default function App() {
     <>
       <SpecodeIframeTracker />
       <main className="clinic-sheet">
+        <img
+          src="/images/clinic-logo.jpg"
+          alt="Sample Clinic Downtown logo"
+          style={{ display: "block", height: 48, width: "auto" }}
+        />
         <h1>Sample Clinic Downtown</h1>
 
         <div className="clinic-information">
