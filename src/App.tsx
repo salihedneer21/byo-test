@@ -12,7 +12,7 @@ export default function App() {
           style={{ display: "block", height: 48, width: "auto" }}
         />
         <h1>Sample Clinic Downtown</h1>
-        <Button type="button" onClick={() => document.getElementById("request-heading")?.scrollIntoView()}>Request an appointment</Button>
+        <button type="button" onClick={() => document.getElementById("request-heading")?.scrollIntoView()}>Request an appointment</button>
 
         <div className="clinic-information">
           <section aria-labelledby="hours-heading">
