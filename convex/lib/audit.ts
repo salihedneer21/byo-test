@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { internalMutation, type MutationCtx } from "../_generated/server";
+import type { MutationCtx } from "../_generated/server";
 
 export const auditActionValidator = v.union(
   v.literal("PHI_READ"),
