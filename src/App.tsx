@@ -13,7 +13,7 @@ export default function App() {
         />
         <h1>Sample Clinic Downtown</h1>
         <button type="button" onClick={() => document.getElementById("request-heading")?.scrollIntoView()}>Request an appointment</button>
-        <p>{greeting}</p>
+        <p>Welcome to Sample Clinic Downtown.</p>
 
         <div className="clinic-information">
           <section aria-labelledby="hours-heading">
