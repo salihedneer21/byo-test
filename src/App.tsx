@@ -12,8 +12,6 @@ export default function App() {
           style={{ display: "block", height: 48, width: "auto" }}
         />
         <h1>Sample Clinic Downtown</h1>
-        <button type="button" onClick={() => document.getElementById("request-heading")?.scrollIntoView()}>Request an appointment</button>
-        <p>Welcome to Sample Clinic Downtown.</p>
 
         <div className="clinic-information">
           <section aria-labelledby="hours-heading">

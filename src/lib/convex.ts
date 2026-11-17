@@ -8,6 +8,3 @@ export const isConvexConfigured = Boolean(convexUrl);
 export const convex = convexUrl
   ? new ConvexReactClient(convexUrl)
   : (null as unknown as ConvexReactClient);
-
-// [pull build check test C] left by an interrupted run
-export const retryLimit: number = "3";
