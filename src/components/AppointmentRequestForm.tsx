@@ -21,6 +21,7 @@ export function AppointmentRequestForm() {
   const [pending, setPending] = useState(false);
   const [submittedAt, setSubmittedAt] = useState<number | null>(null);
   const saved = submittedAt !== null;
+  const [failed, setFailed] = useState(false);
   const inFlight = useRef(false);
   const inputs = useRef<Partial<Record<keyof AppointmentRequestInput, HTMLInputElement | null>>>({});
 
