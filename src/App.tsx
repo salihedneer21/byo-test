@@ -20,7 +20,7 @@ export default function App() {
             <dl>
               <div className="information-entry">
                 <dt>Monday–Friday</dt>
-                <dd>8:00 AM–6:00 PM</dd>
+                <dd>8:00 AM–5:00 PM</dd>
               </div>
               <div className="information-entry">
                 <dt>Saturday–Sunday</dt>
